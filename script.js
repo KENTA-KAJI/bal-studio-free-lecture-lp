@@ -3,16 +3,22 @@
    ============================================================ */
 
 // ------------------------------------------------------------
-// 設定: LINE登録URL
-// ここを書き換えるだけで、ページ内すべてのCTAボタン
-// (data-cta="line" を持つリンク)の遷移先が一括で変わります。
+// 設定: ここだけ書き換えれば全体に反映されます
+//   LINE_URL       : すべてのCTAボタン(data-cta="line")の遷移先。
+//                    正式URL確定時はここを書き換えてください。
+//                    ※HTML内の href="https://example.com/line" は
+//                      JS無効時のフォールバックです。
+//   VIEWING_PERIOD : 視聴期限の文言(FAQに反映)。
+//                    例: "登録後7日間" / "無期限で" など。
 // ------------------------------------------------------------
 const CONFIG = {
-  LINE_URL: "https://example.com/line"
+  LINE_URL: "https://example.com/line",
+  VIEWING_PERIOD: "登録後7日間"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   applyLineUrl();
+  applyViewingPeriod();
   initFaqAccordion();
   initFadeIn();
   initStickyCta();
@@ -24,6 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
 function applyLineUrl() {
   document.querySelectorAll('[data-cta="line"]').forEach((el) => {
     el.setAttribute("href", CONFIG.LINE_URL);
+  });
+}
+
+// ------------------------------------------------------------
+// 視聴期限の文言をFAQに一括適用
+// ------------------------------------------------------------
+function applyViewingPeriod() {
+  document.querySelectorAll('[data-config="viewing-period"]').forEach((el) => {
+    el.textContent = CONFIG.VIEWING_PERIOD;
   });
 }
 

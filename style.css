@@ -1,28 +1,28 @@
 /* ============================================================
    BAL STUDIO 無料講義LP スタイルシート
-   デザイン方針:
-   ・スマートフォン最優先
-   ・白 / 濃いグレー / BALの深い青(ネイビー)を基本色
-   ・背景に淡いブルーグレーを適度に使用
-   ・本文は左揃え、中央揃えは最小限
-   ・余白広め、装飾は統一・最小限。上質なオンライン教育の印象。
+   デザイン方針(BAL STUDIO公式トンマナ):
+   ・黒 / 白 / 落ち着いたゴールドを基調
+   ・青緑(--color-accent-teal)は成長支援の補助表示のみに使用
+   ・大見出しは明朝系(Noto Serif JP)、本文はゴシック(Noto Sans JP)
+   ・英字ラベル・STEP表記はコンデンス系ゴシック(Oswald)
+   ・黒背景と白背景でリズムを作る(全面黒/全面白にしない)
    ============================================================ */
 
 :root {
-  --color-bg: #ffffff;
-  --color-bg-alt: #EEF1F5;      /* 淡いブルーグレー */
-  --color-text: #1C1C1E;
-  --color-text-sub: #52555B;
-  --color-border: #E1E5EB;
-
-  --color-navy: #0F2A4C;        /* BALの深い青 */
-  --color-navy-dark: #0A1E38;
-  --color-navy-light: #E4EAF1;
-
-  --color-gray-panel: #F1F2F4;  /* Before用グレー */
+  --color-black: #050505;
+  --color-black-soft: #11100f;
+  --color-panel: #181614;
+  --color-white: #f7f5f0;
+  --color-text-muted: #b9b3aa;
+  --color-gold: #c7a56a;
+  --color-gold-light: #ddc28e;
+  --color-gold-dark: #8f7246;
+  --color-border: rgba(199, 165, 106, 0.35);
+  --color-accent-teal: #159e9a;
 
   --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
   --font-serif: "Noto Serif JP", serif;
+  --font-condensed: "Oswald", "Hiragino Kaku Gothic ProN", sans-serif;
 
   --max-width: 1080px;
   --max-width-narrow: 720px;
@@ -30,10 +30,10 @@
   --radius-s: 6px;
   --radius-m: 10px;
 
-  --shadow-s: 0 2px 8px rgba(15, 42, 76, 0.08);
-  --shadow-m: 0 10px 30px rgba(15, 42, 76, 0.14);
+  --shadow-s: 0 2px 10px rgba(0, 0, 0, 0.28);
+  --shadow-m: 0 12px 32px rgba(0, 0, 0, 0.34);
 
-  --space-section: clamp(56px, 9vw, 104px);
+  --space-section: clamp(56px, 9vw, 108px);
 }
 
 /* ---------- Reset / Base ---------- */
@@ -44,8 +44,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: var(--font-sans);
-  color: var(--color-text);
-  background: var(--color-bg);
+  color: var(--color-white);
+  background: var(--color-black);
   line-height: 1.85;
   -webkit-font-smoothing: antialiased;
   word-break: break-word;
@@ -68,15 +68,15 @@ button {
   color: inherit;
 }
 
+strong { color: var(--color-gold-light); font-weight: 700; }
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 22px;
 }
 
-.container--narrow {
-  max-width: var(--max-width-narrow);
-}
+.container--narrow { max-width: var(--max-width-narrow); }
 
 .pc-only { display: none; }
 .sp-only { display: inline; }
@@ -89,10 +89,23 @@ button {
 /* ---------- Focus / Accessibility ---------- */
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--color-navy);
+  outline: 3px solid var(--color-gold);
   outline-offset: 2px;
   border-radius: var(--radius-s);
 }
+
+/* ---------- Eyebrow (英字ラベル) ---------- */
+.eyebrow {
+  font-family: var(--font-condensed);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.eyebrow--center { text-align: center; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -100,23 +113,23 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 16px 32px;
+  padding: 16px 34px;
   font-size: 16px;
   font-weight: 700;
-  border-radius: var(--radius-s);
+  border-radius: 8px;
   transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
   text-align: center;
   line-height: 1.4;
 }
 
 .btn-primary {
-  background: var(--color-navy);
-  color: #ffffff;
+  background: var(--color-gold);
+  color: #191510;
   box-shadow: var(--shadow-s);
 }
 
 .btn-primary:hover {
-  background: var(--color-navy-dark);
+  background: var(--color-gold-light);
   transform: translateY(-1px);
   box-shadow: var(--shadow-m);
 }
@@ -127,47 +140,116 @@ button:focus-visible {
   padding: 18px 40px;
   font-size: 18px;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
 }
 
 .btn-block { width: 100%; }
+
+.btn__arrow { font-size: 15px; }
 
 .cta-note {
   margin-top: 14px;
   font-size: 13px;
   line-height: 1.7;
-  color: var(--color-text-sub);
+  color: var(--color-text-muted);
 }
 
-.cta-note--light { color: rgba(255, 255, 255, 0.78); }
+.cta-note--onlight { color: #6b6557; }
 
 .cta-inline {
   margin-top: 40px;
   text-align: center;
 }
 
-/* ---------- Header ---------- */
+/* ---------- Header (公式サイトと同じく白背景を維持) ---------- */
 .site-header {
   padding: 18px 0;
-  border-bottom: 1px solid var(--color-border);
-  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--color-white);
 }
 
-.logo {
-  height: 22px;
-  width: auto;
+.logo { height: 24px; width: auto; }
+
+/* ============================================================
+   Section テーマ切り替え
+   .section--dark  : 黒に近い濃いブラウン基調(既定)
+   .section--light : 温かみのある白基調
+   ============================================================ */
+.section {
+  padding: var(--space-section) 0;
+  background: var(--color-black-soft);
+  color: var(--color-white);
 }
+
+.section--light {
+  background: var(--color-white);
+  color: #211d16;
+}
+
+.section--light .eyebrow { color: var(--color-gold-dark); }
+
+.section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 4.6vw, 31px);
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: center;
+  margin-bottom: 40px;
+  color: inherit;
+}
+
+.section--light .section__title { color: #1b1710; }
+
+.section__title--left { text-align: left; }
+
+.text-block p {
+  margin-bottom: 18px;
+  font-size: 15.5px;
+  color: inherit;
+  opacity: 0.92;
+}
+
+.section--light .text-block p { opacity: 1; color: #3a352b; }
+
+.text-block p:last-child { margin-bottom: 0; }
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 36px 0 44px;
-  background: linear-gradient(180deg, var(--color-navy-light) 0%, #F4F7FA 55%, #ffffff 100%);
+  position: relative;
+  padding: 44px 0 52px;
+  background: radial-gradient(120% 100% at 15% 0%, #171310 0%, var(--color-black) 55%);
+  overflow: hidden;
 }
 
-/* モバイル：コピー → 画像 → CTA の順 */
+.hero::before {
+  content: "PRACTICAL ANATOMY";
+  position: absolute;
+  top: 8%;
+  right: -4%;
+  font-family: var(--font-condensed);
+  font-size: clamp(64px, 14vw, 160px);
+  font-weight: 700;
+  color: rgba(199, 165, 106, 0.06);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold) 50%, transparent);
+  opacity: 0.5;
+}
+
 .hero__inner {
+  position: relative;
+  z-index: 1;
   display: grid;
-  gap: 20px;
+  gap: 24px;
 }
 
 .hero__text  { order: 1; }
@@ -178,145 +260,117 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-top: 20px;
 }
 
 .badge {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 500;
-  color: var(--color-navy);
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid var(--color-navy);
+  color: var(--color-gold-light);
+  background: rgba(199, 165, 106, 0.08);
+  border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: 6px 14px;
 }
 
 .hero__title {
   font-family: var(--font-serif);
-  font-size: clamp(25px, 6.6vw, 40px);
+  font-size: clamp(27px, 7vw, 42px);
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.01em;
-  color: var(--color-text);
+  color: var(--color-white);
   margin-bottom: 18px;
 }
 
 .hero__subtitle {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--color-text-sub);
-  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--color-text-muted);
+  margin: 0 0 24px;
 }
 
-.hero__media { margin: 0; }
+.hero__lecture-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  background: rgba(199, 165, 106, 0.06);
+  padding: 20px 22px;
+  margin-bottom: 20px;
+}
+
+.hero__lecture-label {
+  font-family: var(--font-condensed);
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 8px;
+}
+
+.hero__lecture-title {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 4vw, 22px);
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.hero__lecture-sub {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+}
 
 .media-thumb {
   position: relative;
   width: 100%;
-  aspect-ratio: 7 / 4;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius-m);
   overflow: hidden;
+  border: 1px solid var(--color-border);
   box-shadow: var(--shadow-m);
 }
 
 .media-thumb img {
   width: 100%;
-  height: auto;
-  aspect-ratio: 7 / 4;
+  height: 100%;
   object-fit: cover;
-}
-
-.media-thumb__ph {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  background:
-    radial-gradient(circle at 50% 42%, #F2F5F9 0%, var(--color-navy-light) 100%);
-  border: 1px solid var(--color-navy-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.media-thumb__label {
-  font-size: 13px;
-  color: var(--color-navy);
-  opacity: 0.7;
-  letter-spacing: 0.04em;
 }
 
 .media-thumb__play {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   transform: translate(-50%, -50%);
-  filter: drop-shadow(0 4px 10px rgba(15, 42, 76, 0.35));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.45));
   pointer-events: none;
 }
 
 .media-thumb__play svg { width: 100%; height: 100%; }
 
 @media (min-width: 900px) {
-  .hero { padding: 68px 0 80px; }
-  /* PC：左にコピー＋CTA、右にサムネイル */
+  .hero { padding: 76px 0 88px; }
   .hero__inner {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "text  media"
       "cta   media";
     align-content: center;
-    column-gap: 56px;
+    column-gap: 60px;
     row-gap: 28px;
   }
   .hero__text  { grid-area: text; align-self: end; }
   .hero__cta   { grid-area: cta; align-self: start; }
   .hero__media { grid-area: media; align-self: center; }
-  .hero__title { text-align: left; }
 }
 
-/* ---------- Sections (generic) ---------- */
-.section { padding: var(--space-section) 0; }
-
-.section--alt { background: var(--color-bg-alt); }
-
-.section__title {
-  font-family: var(--font-serif);
-  font-size: clamp(21px, 4.4vw, 29px);
-  font-weight: 700;
-  line-height: 1.5;
-  text-align: center;
-  margin-bottom: 36px;
-  color: var(--color-text);
-}
-
-.section__title::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: var(--color-navy);
-  margin: 18px auto 0;
-  border-radius: 2px;
-}
-
-.section__title--left { text-align: left; }
-.section__title--left::after { margin-left: 0; margin-right: 0; }
-
-.text-block p {
-  margin-bottom: 18px;
-  font-size: 15.5px;
-  color: var(--color-text);
-}
-
-.text-block p:last-child { margin-bottom: 0; }
-
-/* ---------- 悩みの提示 ---------- */
+/* ---------- どんな人向けか(白背景) ---------- */
 .pain-target {
   max-width: 640px;
-  margin: -14px auto 28px;
+  margin: -18px auto 28px;
   font-size: 13.5px;
-  color: var(--color-text-sub);
+  color: #6b6557;
   text-align: center;
   line-height: 1.8;
 }
@@ -332,10 +386,11 @@ button:focus-visible {
   position: relative;
   padding: 16px 20px 16px 46px;
   background: #ffffff;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(143, 114, 70, 0.25);
   border-radius: var(--radius-m);
   font-size: 15px;
-  color: var(--color-text);
+  color: #2a2620;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .pain-list li::before {
@@ -347,149 +402,125 @@ button:focus-visible {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-navy);
+  background: var(--color-gold);
 }
 
 .callout {
   max-width: 640px;
   margin: 0 auto;
   padding: 26px 28px;
-  background: var(--color-navy);
-  color: #ffffff;
+  background: var(--color-black-soft);
+  color: var(--color-white);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-m);
   text-align: left;
 }
 
 .callout p { font-size: 15.5px; line-height: 1.9; }
 
-/* ---------- 5つの判断ステップ（フロー図） ---------- */
+.callout--emphasis {
+  background: var(--color-panel);
+  border-color: var(--color-gold);
+  text-align: center;
+  font-weight: 500;
+  color: var(--color-gold-light);
+}
+
+/* ---------- 学ぶ順番(5 STEP) ---------- */
 .flow {
   display: grid;
   gap: 14px;
-  max-width: 560px;
+  max-width: 620px;
   margin: 0 auto;
 }
 
 .flow__item {
   position: relative;
-  padding: 18px 20px 18px 62px;
-  background: #ffffff;
+  padding: 20px 20px 20px 68px;
+  background: var(--color-panel);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-m);
 }
 
-.section--alt .flow__item { background: #ffffff; }
-
 .flow__num {
   position: absolute;
-  left: 16px;
-  top: 18px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--color-navy);
-  color: #fff;
-  font-family: var(--font-serif);
+  left: 18px;
+  top: 20px;
+  font-family: var(--font-condensed);
   font-weight: 700;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 30px;
+  color: var(--color-gold);
+  line-height: 1;
 }
 
 .flow__label {
   font-size: 16px;
   font-weight: 700;
-  color: var(--color-navy);
-  margin-bottom: 2px;
+  color: var(--color-white);
+  margin-bottom: 4px;
 }
 
 .flow__desc {
   font-size: 13.5px;
-  color: var(--color-text-sub);
+  color: var(--color-text-muted);
   line-height: 1.7;
 }
 
-/* スマホ：縦フロー、項目間に下向きコネクタ */
 .flow__item:not(:last-child)::after {
   content: "";
   position: absolute;
-  left: 32px;
+  left: 33px;
   bottom: -14px;
-  width: 2px;
+  width: 1px;
   height: 14px;
-  background: var(--color-navy-light);
-  z-index: 0;
+  background: var(--color-border);
 }
 
-.flow-note {
-  max-width: 560px;
-  margin: 30px auto 0;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-/* PC：横フロー */
-@media (min-width: 860px) {
+@media (min-width: 900px) {
   .flow {
     grid-template-columns: repeat(5, 1fr);
     gap: 12px;
     max-width: 100%;
   }
-  .flow__item {
-    padding: 52px 14px 18px;
-    text-align: center;
-  }
-  .flow__num {
-    left: 50%;
-    top: 14px;
-    transform: translateX(-50%);
-  }
+  .flow__item { padding: 56px 16px 20px; text-align: center; }
+  .flow__num { left: 50%; top: 16px; transform: translateX(-50%); }
   .flow__item:not(:last-child)::after {
-    content: "";
-    left: auto;
-    right: -8px;
-    top: 30px;
-    bottom: auto;
-    width: 10px;
-    height: 2px;
-    background: var(--color-navy-light);
+    left: auto; right: -7px; top: 32px; bottom: auto;
+    width: 10px; height: 1px;
   }
 }
 
-/* ---------- Lecture card / thumbnail ---------- */
+/* ---------- 無料講義の内容 ---------- */
 .lecture-card {
   max-width: 640px;
   margin: 0 auto 28px;
   padding: 22px 26px;
-  border: 1.5px solid var(--color-navy);
+  border: 1px solid var(--color-gold);
   border-radius: var(--radius-m);
   text-align: center;
-  background: #ffffff;
+  background: var(--color-panel);
 }
 
 .lecture-card__label {
-  font-size: 12.5px;
-  color: var(--color-text-sub);
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
+  font-family: var(--font-condensed);
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 10px;
 }
 
 .lecture-card__title {
   font-family: var(--font-serif);
   font-size: clamp(17px, 3.6vw, 22px);
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-white);
   line-height: 1.6;
+  margin-bottom: 6px;
 }
 
-.lecture-card__time {
-  margin-top: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-text-sub);
+.lecture-card__sub {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
 }
 
 .lecture-thumb {
@@ -498,30 +529,16 @@ button:focus-visible {
   margin: 0 auto 32px;
   border-radius: var(--radius-m);
   overflow: hidden;
+  border: 1px solid var(--color-border);
   box-shadow: var(--shadow-m);
 }
 
-.lecture-thumb__ph {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  background: radial-gradient(circle at 50% 42%, #F2F5F9 0%, var(--color-navy-light) 100%);
-  border: 1px solid var(--color-navy-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lecture-thumb__label {
-  font-size: 13px;
-  color: var(--color-navy);
-  opacity: 0.7;
-  letter-spacing: 0.04em;
-}
+.lecture-thumb img { width: 100%; height: auto; aspect-ratio: 7 / 4; object-fit: cover; }
 
 /* ---------- Check list ---------- */
 .check-list {
   max-width: 640px;
-  margin: 0 auto;
+  margin: 0 auto 32px;
   display: grid;
   gap: 12px;
 }
@@ -530,6 +547,8 @@ button:focus-visible {
   position: relative;
   padding: 4px 0 4px 32px;
   font-size: 15px;
+  color: var(--color-white);
+  opacity: 0.92;
 }
 
 .check-list li::before {
@@ -540,7 +559,7 @@ button:focus-visible {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: var(--color-navy);
+  background: var(--color-gold);
 }
 
 .check-list li::after {
@@ -550,117 +569,151 @@ button:focus-visible {
   top: 10px;
   width: 8px;
   height: 4px;
-  border-left: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  border-left: 2px solid #191510;
+  border-bottom: 2px solid #191510;
   transform: rotate(-45deg);
 }
 
-/* ---------- Compare (Before/After) ---------- */
-.compare {
+/* ---------- 肩の具体例(白背景・LP内最大の見せ場) ---------- */
+.shoulder-grid {
   display: grid;
   gap: 16px;
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto 32px;
   align-items: stretch;
 }
 
-.compare__col {
-  padding: 26px 24px;
+.shoulder-col {
+  padding: 26px 22px;
   border-radius: var(--radius-m);
-  border: 1px solid var(--color-border);
+  background: #ffffff;
+  border: 1px solid rgba(143, 114, 70, 0.25);
 }
 
-/* Before：過度な赤を避けグレー系 */
-.compare__col--before {
-  background: var(--color-gray-panel);
-  border-color: #DDDFE3;
+.shoulder-col--gap {
+  border: 1.5px solid var(--color-gold);
+  background: #fbf6ea;
 }
-.compare__col--before .compare__label { color: var(--color-text-sub); }
-.compare__col--before .compare__list li::before { color: #9AA0A6; }
 
-/* After：BALの青 */
-.compare__col--after {
-  background: var(--color-navy-light);
-  border-color: var(--color-navy);
-}
-.compare__col--after .compare__label { color: var(--color-navy); }
-.compare__col--after .compare__list li::before { color: var(--color-navy); }
-
-.compare__label {
-  font-family: var(--font-serif);
+.shoulder-col__label {
+  font-size: 13px;
   font-weight: 700;
-  font-size: 15px;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
+  color: #6b6557;
+  margin-bottom: 14px;
 }
 
-.compare__list { display: grid; gap: 10px; }
+.shoulder-col--gap .shoulder-col__label { color: var(--color-gold-dark); }
 
-.compare__list li {
+.shoulder-col ul { display: grid; gap: 8px; }
+
+.shoulder-col li {
   font-size: 14.5px;
-  padding-left: 18px;
+  color: #2a2620;
+  padding-left: 14px;
   position: relative;
 }
 
-.compare__list li::before {
+.shoulder-col li::before {
   content: "–";
   position: absolute;
   left: 0;
+  color: #8a8272;
 }
 
-.compare__arrow {
-  display: none;
+.shoulder-col__text {
+  font-size: 15px;
+  color: #2a2620;
+  line-height: 1.7;
+}
+
+.shoulder-col--gap .shoulder-col__text strong {
+  color: var(--color-gold-dark);
+  font-weight: 700;
+}
+
+.shoulder-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-gold-dark);
+  transform: rotate(90deg);
+}
+
+.text-block__lead {
+  max-width: 640px;
+  margin: 0 auto 20px;
+  font-size: 15.5px;
+  color: #3a352b;
   text-align: center;
-  font-size: 22px;
-  color: var(--color-navy);
-  align-self: center;
+  line-height: 1.9;
 }
 
-@media (min-width: 768px) {
-  .compare { grid-template-columns: 1fr auto 1fr; }
-  .compare__arrow { display: block; }
+.callout--onlight {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 22px 26px;
+  background: #1b1710;
+  color: var(--color-gold-light);
+  border-radius: var(--radius-m);
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
 }
 
-/* ---------- Instructor ---------- */
+@media (min-width: 860px) {
+  .shoulder-grid {
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+  }
+  .shoulder-arrow { transform: none; }
+}
+
+/* ---------- 講師紹介 ---------- */
 .instructor__inner {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  max-width: 900px;
+  gap: 30px;
+  max-width: 940px;
+}
+
+.instructor__media {
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
 }
 
 .avatar-placeholder {
-  aspect-ratio: 7 / 4;
   width: 100%;
   height: auto;
-  max-width: 380px;
+  max-width: 420px;
   margin: 0 auto;
-  border-radius: var(--radius-m);
+  aspect-ratio: 7 / 4;
   object-fit: cover;
-  box-shadow: var(--shadow-s);
   display: block;
 }
 
 .instructor__role {
-  font-size: 13px;
-  color: var(--color-text-sub);
-  margin-bottom: 4px;
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 8px;
 }
 
 .instructor__name {
   font-family: var(--font-serif);
-  font-size: 23px;
+  font-size: 26px;
   font-weight: 700;
-  color: var(--color-navy);
-  margin-bottom: 18px;
+  color: var(--color-white);
+  margin-bottom: 20px;
 }
 
 .instructor-photo {
-  margin-top: 24px;
+  margin-top: 26px;
   border-radius: var(--radius-m);
   overflow: hidden;
-  box-shadow: var(--shadow-s);
+  border: 1px solid var(--color-border);
 }
 
 .instructor-photo img {
@@ -671,41 +724,25 @@ button:focus-visible {
   display: block;
 }
 
-.instructor-photo__ph {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  background: #ffffff;
-  border: 1px dashed var(--color-navy);
-  color: var(--color-navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-}
-
 @media (min-width: 768px) {
-  .instructor__inner {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 48px;
-  }
-  .instructor__media { flex: 0 0 380px; }
+  .instructor__inner { flex-direction: row; align-items: flex-start; gap: 52px; }
+  .instructor__media { flex: 0 0 400px; }
   .instructor__content { flex: 1; }
-  .avatar-placeholder { margin: 0; max-width: 380px; }
+  .avatar-placeholder { margin: 0; max-width: 400px; }
 }
 
-/* ---------- Steps (視聴方法 3ステップ) ---------- */
+/* ---------- 受け取り方法(白背景・3ステップ) ---------- */
 .steps {
   display: grid;
   gap: 16px;
-  max-width: 760px;
-  margin: 0 auto;
+  max-width: 780px;
+  margin: 0 auto 8px;
 }
 
 .steps__item {
   padding: 22px 24px;
   background: #ffffff;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(143, 114, 70, 0.25);
   border-radius: var(--radius-m);
   display: flex;
   align-items: center;
@@ -715,42 +752,46 @@ button:focus-visible {
 
 .steps__number {
   flex: 0 0 auto;
-  font-family: var(--font-serif);
+  font-family: var(--font-condensed);
   font-weight: 700;
-  font-size: 13px;
-  color: #ffffff;
-  background: var(--color-navy);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  color: #191510;
+  background: var(--color-gold);
   padding: 5px 14px;
   border-radius: 999px;
-  letter-spacing: 0.08em;
 }
 
 .steps__text {
   font-size: 15.5px;
   font-weight: 500;
+  color: #211d16;
+}
+
+.steps-note {
+  text-align: center;
+  font-size: 13.5px;
+  color: #6b6557;
+  margin: 20px 0 8px;
 }
 
 @media (min-width: 768px) {
   .steps { grid-template-columns: repeat(3, 1fr); }
-  .steps__item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  }
+  .steps__item { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
 
 /* ---------- BAL STUDIO 紹介 ---------- */
 .about-bal__inner {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  max-width: 960px;
+  gap: 30px;
+  max-width: 980px;
 }
 
 .about-bal__figure {
   border-radius: var(--radius-m);
   overflow: hidden;
-  box-shadow: var(--shadow-s);
+  border: 1px solid var(--color-border);
 }
 
 .about-bal__figure img {
@@ -761,30 +802,39 @@ button:focus-visible {
   display: block;
 }
 
-.about-bal__ph {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  background: radial-gradient(circle at 50% 42%, #F2F5F9 0%, var(--color-navy-light) 100%);
-  border: 1px dashed var(--color-navy);
-  color: var(--color-navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.about-bal__note {
+  margin-top: 20px;
   font-size: 13px;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
+}
+
+/* 成長支援の補助表示(青緑を少量) */
+.growth-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 8px 16px;
+  border: 1px solid rgba(21, 158, 154, 0.4);
+  border-radius: 999px;
+}
+
+.growth-tag__label {
+  font-family: var(--font-condensed);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--color-accent-teal);
 }
 
 @media (min-width: 860px) {
-  .about-bal__inner {
-    flex-direction: row;
-    align-items: center;
-    gap: 48px;
-  }
-  .about-bal__content { flex: 1 1 50%; }
-  .about-bal__media { flex: 1 1 50%; }
-  .section__title--left { margin-top: 0; }
+  .about-bal__inner { flex-direction: row; align-items: center; gap: 52px; }
+  .about-bal__content { flex: 1 1 55%; }
+  .about-bal__media { flex: 1 1 45%; }
 }
 
-/* ---------- FAQ ---------- */
+/* ---------- FAQ(白背景) ---------- */
 .faq-list {
   max-width: 720px;
   margin: 0 auto;
@@ -793,7 +843,7 @@ button:focus-visible {
 }
 
 .faq-item {
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(143, 114, 70, 0.25);
   border-radius: var(--radius-m);
   background: #ffffff;
   overflow: hidden;
@@ -809,6 +859,7 @@ button:focus-visible {
   font-size: 15px;
   font-weight: 500;
   text-align: left;
+  color: #211d16;
 }
 
 .faq-item__icon {
@@ -822,7 +873,7 @@ button:focus-visible {
 .faq-item__icon::after {
   content: "";
   position: absolute;
-  background: var(--color-navy);
+  background: var(--color-gold-dark);
   transition: transform 0.2s ease;
 }
 
@@ -842,46 +893,59 @@ button:focus-visible {
 
 .faq-item__answer p {
   font-size: 14.5px;
-  color: var(--color-text-sub);
+  color: #5c5648;
   padding-bottom: 18px;
 }
 
 /* ---------- Final CTA ---------- */
 .final-cta {
+  position: relative;
   padding: var(--space-section) 0;
-  background: var(--color-navy);
-  color: #ffffff;
+  background: radial-gradient(120% 100% at 85% 100%, #171310 0%, var(--color-black) 55%);
+  color: var(--color-white);
   text-align: center;
+  overflow: hidden;
+}
+
+.final-cta::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold) 50%, transparent);
+  opacity: 0.5;
 }
 
 .final-cta__title {
   font-family: var(--font-serif);
-  font-size: clamp(21px, 4.8vw, 30px);
+  font-size: clamp(22px, 5vw, 32px);
   font-weight: 700;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  line-height: 1.65;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
 }
 
 .final-cta__body {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.82);
-  margin-bottom: 32px;
+  color: var(--color-text-muted);
+  margin-bottom: 34px;
   line-height: 1.9;
+  position: relative;
+  z-index: 1;
 }
 
-.final-cta .btn-primary {
-  background: #ffffff;
-  color: var(--color-navy);
-}
+.final-cta .fade-in { position: relative; z-index: 1; }
 
-.final-cta .btn-primary:hover { background: var(--color-navy-light); }
+.cta-note--light { color: var(--color-text-muted); }
 
 /* ---------- Footer ---------- */
 .site-footer {
   padding: 28px 0 96px;
   text-align: center;
   font-size: 12.5px;
-  color: var(--color-text-sub);
+  color: var(--color-text-muted);
+  background: var(--color-black);
 }
 
 @media (min-width: 900px) {
@@ -896,17 +960,22 @@ button:focus-visible {
   bottom: 0;
   z-index: 40;
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(6px);
-  border-top: 1px solid var(--color-border);
-  box-shadow: 0 -4px 16px rgba(15, 42, 76, 0.12);
+  background: var(--color-gold);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.3);
   transform: translateY(100%);
   transition: transform 0.25s ease;
 }
 
 .sticky-cta.is-visible { transform: translateY(0); }
 
-.sticky-cta .btn { padding: 13px 20px; font-size: 15px; }
+.sticky-cta .btn {
+  padding: 13px 20px;
+  font-size: 15px;
+  background: #191510;
+  color: var(--color-gold-light);
+}
+
+.sticky-cta .btn:hover { background: #241d16; }
 
 @media (min-width: 900px) {
   .sticky-cta { display: none; }
@@ -919,10 +988,7 @@ button:focus-visible {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.fade-in.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.fade-in.is-visible { opacity: 1; transform: translateY(0); }
 
 @media (prefers-reduced-motion: reduce) {
   .fade-in { opacity: 1; transform: none; transition: none; }

@@ -154,11 +154,8 @@ button:focus-visible {
 }
 
 .logo {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 0.06em;
-  color: var(--color-navy);
+  height: 22px;
+  width: auto;
 }
 
 /* ---------- Hero ---------- */
@@ -216,9 +213,17 @@ button:focus-visible {
 .media-thumb {
   position: relative;
   width: 100%;
+  aspect-ratio: 7 / 4;
   border-radius: var(--radius-m);
   overflow: hidden;
   box-shadow: var(--shadow-m);
+}
+
+.media-thumb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 7 / 4;
+  object-fit: cover;
 }
 
 .media-thumb__ph {
@@ -626,18 +631,15 @@ button:focus-visible {
 }
 
 .avatar-placeholder {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 7 / 4;
   width: 100%;
-  max-width: 300px;
+  height: auto;
+  max-width: 380px;
   margin: 0 auto;
   border-radius: var(--radius-m);
-  background: var(--color-navy-light);
-  border: 1px dashed var(--color-navy);
-  color: var(--color-navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
+  object-fit: cover;
+  box-shadow: var(--shadow-s);
+  display: block;
 }
 
 .instructor__role {
@@ -658,6 +660,15 @@ button:focus-visible {
   margin-top: 24px;
   border-radius: var(--radius-m);
   overflow: hidden;
+  box-shadow: var(--shadow-s);
+}
+
+.instructor-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
 }
 
 .instructor-photo__ph {
@@ -678,9 +689,9 @@ button:focus-visible {
     align-items: flex-start;
     gap: 48px;
   }
-  .instructor__media { flex: 0 0 300px; }
+  .instructor__media { flex: 0 0 380px; }
   .instructor__content { flex: 1; }
-  .avatar-placeholder { margin: 0; max-width: 300px; }
+  .avatar-placeholder { margin: 0; max-width: 380px; }
 }
 
 /* ---------- Steps (視聴方法 3ステップ) ---------- */
@@ -740,6 +751,14 @@ button:focus-visible {
   border-radius: var(--radius-m);
   overflow: hidden;
   box-shadow: var(--shadow-s);
+}
+
+.about-bal__figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 5;
+  object-fit: cover;
+  display: block;
 }
 
 .about-bal__ph {

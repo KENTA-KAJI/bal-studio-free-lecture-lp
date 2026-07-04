@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料講義:なぜ、解剖学を学んでも現場で使えないのか｜BAL STUDIO</title>
+<meta name="description" content="解剖学や評価方法を学んでも、現場で何をすればいいか迷っていませんか？知識を現場で使える判断に変えるための思考法を、無料講義で公開します。トレーナー・施術者向け、LINE登録後すぐに視聴可能。">
+
+<!-- OGP設定: og:image は下記プレースホルダーを実画像(推奨 1200x630px)に差し替えてください -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="無料講義:なぜ、解剖学を学んでも現場で使えないのか｜BAL STUDIO">
+<meta property="og:description" content="知識を現場で使える判断に変えるための思考法を、無料講義で公開します。トレーナー・施術者向け、LINE登録後すぐに視聴可能。">
+<meta property="og:image" content="https://example.com/ogp-image-placeholder.jpg">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  ============================================================
+  LINE登録URLについて
+  すべてのCTAボタンの遷移先は script.js 冒頭の CONFIG.LINE_URL
+  1箇所を書き換えるだけで一括反映されます。
+  (HTML内の href="https://example.com/line" は JS 無効時の
+  フォールバック用です。実際のURLに差し替える場合はこちらも
+  合わせて変更してください)
+  ============================================================
+-->
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <p class="logo">BAL STUDIO</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       1. ファーストビュー
+  ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="container hero__inner">
+      <div class="hero__content fade-in">
+        <ul class="badge-list" aria-label="この講義について">
+          <li class="badge">トレーナー・施術者向け</li>
+          <li class="badge">LINE登録後すぐに視聴可能</li>
+          <li class="badge">無料</li>
+          <li class="badge">スマートフォンで視聴可能</li>
+        </ul>
+
+        <h1 class="hero__title">
+          解剖学を学んでいるのに、<br>
+          現場では何をすればいいか<br class="sp-only">迷っていませんか？
+        </h1>
+
+        <p class="hero__subtitle">
+          評価、施術、運動の知識を増やしても、<br class="pc-only">
+          それらをつなぐ「考える順番」がなければ、現場での迷いはなくなりません。<br>
+          知識を現場で使える判断に変えるための思考法を、無料講義で公開します。
+        </p>
+
+        <a href="https://example.com/line" data-cta="line" class="btn btn-primary btn-large">
+          無料講義をLINEで受け取る
+        </a>
+        <p class="cta-note">登録後、すぐに視聴URLをお送りします。</p>
+      </div>
+
+      <div class="hero__media fade-in">
+        <!-- 差し替え箇所: 講義サムネイル画像
+             推奨: 無料講義の1シーン、またはミナミヨシト氏の講義風景写真(横長 800x600px以上)
+             差し替え方法: 下記 div.media-placeholder を <img src="images/lecture-thumbnail.jpg" alt="..."> に置き換えてください -->
+        <div class="media-placeholder" role="img" aria-label="無料講義サムネイル(仮)">
+          <svg class="media-placeholder__icon" viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
+            <circle cx="32" cy="32" r="31" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M26 20 L46 32 L26 44 Z" fill="currentColor"/>
+          </svg>
+          <span>講義サムネイル画像</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. こんな状態になっていませんか
+  ============================================================ -->
+  <section class="section section--alt" id="pain">
+    <div class="container">
+      <h2 class="section__title fade-in">こんな状態になっていませんか</h2>
+
+      <ul class="pain-list fade-in">
+        <li>解剖学や評価方法を学んでも、現場で何から見ればいいか分からない</li>
+        <li>評価はできても、その後の施術や運動を決められない</li>
+        <li>新しい手技やエクササイズを学ぶたびに、知識がバラバラに増えていく</li>
+        <li>クライアントによって対応を変えることが難しい</li>
+        <li>SNSやセミナーで見た方法を、そのまま当てはめてしまう</li>
+        <li>自分の判断に根拠を持てず、毎回正解を探してしまう</li>
+      </ul>
+
+      <div class="callout fade-in">
+        <p>
+          これは、あなたの知識が足りないからではありません。<br>
+          多くの場合、問題は知識量ではなく、<br>
+          集めた情報を整理し、仮説を立て、次の行動へつなげる順番がないことにあります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. 学び続けても現場で使えない理由
+  ============================================================ -->
+  <section class="section" id="reason">
+    <div class="container">
+      <h2 class="section__title fade-in">学び続けても現場で使えない理由</h2>
+
+      <div class="text-block fade-in">
+        <p>
+          多くの人は、現場で迷うと、<br>
+          「もっと解剖学を学ばなければ」<br>
+          「新しい評価方法を覚えなければ」<br>
+          「もっと多くのエクササイズを知る必要がある」<br>
+          と考えます。
+        </p>
+        <p>
+          しかし、筋肉の名前や起始停止、評価方法、施術、運動を個別に覚えても、それだけでは現場で使える判断にはつながりません。
+        </p>
+        <p>必要なのは、</p>
+      </div>
+
+      <ol class="step-list fade-in">
+        <li>何を見るか</li>
+        <li>どの情報を重要と考えるか</li>
+        <li>どんな仮説を立てるか</li>
+        <li>何を試すか</li>
+        <li>どう再評価するか</li>
+      </ol>
+
+      <p class="text-block fade-in">
+        という、一連の思考の流れです。<br>
+        今回の無料講義では、この「考える順番」を整理して解説します。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. 無料講義で学べること
+  ============================================================ -->
+  <section class="section section--alt" id="lecture-content">
+    <div class="container">
+      <h2 class="section__title fade-in">無料講義で学べること</h2>
+
+      <div class="lecture-card fade-in">
+        <p class="lecture-card__label">講義タイトル</p>
+        <p class="lecture-card__title">なぜ、解剖学を学んでも現場で使えないのか</p>
+      </div>
+
+      <ul class="check-list fade-in">
+        <li>知識を増やしても現場で迷う理由</li>
+        <li>評価で最初に確認すべき情報</li>
+        <li>集めた情報から仮説を立てる方法</li>
+        <li>評価結果から施術、運動へつなげる考え方</li>
+        <li>再評価によって判断を修正する方法</li>
+        <li>今後、何をどの順番で学ぶべきか</li>
+      </ul>
+
+      <div class="text-block fade-in">
+        <p>この講義は、特定の手技やエクササイズを覚えるための講義ではありません。</p>
+        <p>
+          身体を見たときに、<br>
+          「なぜ、そう考えたのか」<br>
+          「なぜ、この評価を選んだのか」<br>
+          「なぜ、この施術や運動を選んだのか」<br>
+          を自分の言葉で説明できるようになるための講義です。
+        </p>
+      </div>
+
+      <div class="cta-inline fade-in">
+        <a href="https://example.com/line" data-cta="line" class="btn btn-primary">無料講義をLINEで受け取る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. 講義を見ることでどう変わるか
+  ============================================================ -->
+  <section class="section" id="change">
+    <div class="container">
+      <h2 class="section__title fade-in">講義を見ることでどう変わるか</h2>
+
+      <div class="compare fade-in">
+        <div class="compare__col compare__col--before">
+          <p class="compare__label">Before</p>
+          <ul class="compare__list">
+            <li>評価項目をたくさん行う</li>
+            <li>症状のある場所だけを見る</li>
+            <li>覚えた手技や運動を当てはめる</li>
+            <li>変化が出なければ別の方法を試す</li>
+            <li>正解を外に探し続ける</li>
+          </ul>
+        </div>
+        <div class="compare__arrow" aria-hidden="true">→</div>
+        <div class="compare__col compare__col--after">
+          <p class="compare__label">After</p>
+          <ul class="compare__list">
+            <li>必要な評価を目的に合わせて選べる</li>
+            <li>情報を整理して仮説を立てられる</li>
+            <li>施術や運動を選ぶ理由が明確になる</li>
+            <li>再評価から次の判断を修正できる</li>
+            <li>自分に不足している学びが分かる</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-inline fade-in">
+        <a href="https://example.com/line" data-cta="line" class="btn btn-primary">無料講義をLINEで受け取る</a>
+        <p class="cta-note">登録後、すぐに視聴できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. このような方におすすめ
+  ============================================================ -->
+  <section class="section section--alt" id="target">
+    <div class="container">
+      <h2 class="section__title fade-in">このような方におすすめ</h2>
+
+      <div class="target-group fade-in">
+        <p class="target-group__label">職種</p>
+        <ul class="tag-list">
+          <li>パーソナルトレーナー</li>
+          <li>理学療法士、作業療法士</li>
+          <li>柔道整復師、鍼灸師</li>
+          <li>整体師、セラピスト</li>
+          <li>ピラティス、ヨガインストラクター</li>
+          <li>運動指導や施術を学ぶ学生</li>
+        </ul>
+      </div>
+
+      <div class="target-group fade-in">
+        <p class="target-group__label">状態</p>
+        <ul class="check-list">
+          <li>解剖学を学び直したい</li>
+          <li>評価から介入までの流れを整理したい</li>
+          <li>知識はあるが現場で使えていない</li>
+          <li>指導や施術の根拠を明確にしたい</li>
+          <li>学ぶ講義を選べず迷っている</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. 講師紹介
+  ============================================================ -->
+  <section class="section" id="instructor">
+    <div class="container instructor__inner">
+      <div class="instructor__media fade-in">
+        <!-- 差し替え箇所: 講師(ミナミヨシト氏)の顔写真
+             推奨: 正方形または縦長、明るく専門性が伝わるもの
+             差し替え方法: 下記 div.avatar-placeholder を <img src="images/instructor.jpg" alt="ミナミヨシト"> に置き換えてください -->
+        <div class="avatar-placeholder" role="img" aria-label="講師画像(仮)">
+          <span>講師画像</span>
+        </div>
+      </div>
+      <div class="instructor__content fade-in">
+        <p class="instructor__role">講師</p>
+        <p class="instructor__name">ミナミヨシト</p>
+        <div class="text-block">
+          <p>
+            運動指導者・施術者向けの教育事業を通じて、解剖学、評価、運動、施術、商品化、キャリアなど、現場と仕事に必要な学びを提供。
+          </p>
+          <p>
+            国内外での解剖実習や、多くのトレーナー・施術者との関わりを通じて、<br>
+            「知識を増やすこと」と<br>
+            「現場で使えること」は同じではない<br>
+            という課題を感じてきました。
+          </p>
+          <p>
+            今回の講義では、特定の正解を覚えるのではなく、クライアントを前にしたときに自分で考え、判断するための基本的な思考法をお伝えします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. なぜ無料で公開するのか
+  ============================================================ -->
+  <section class="section section--alt" id="why-free">
+    <div class="container container--narrow">
+      <h2 class="section__title fade-in">なぜ無料で公開するのか</h2>
+      <div class="text-block text-block--center fade-in">
+        <p>
+          現在は、SNSや動画、セミナーなどを通じて、さまざまな技術や知識を学べる時代です。
+        </p>
+        <p>
+          一方で、情報が増えたことで、<br>
+          「何から学べばいいか分からない」<br>
+          「学んだ内容をどう整理すればいいか分からない」<br>
+          という人も増えています。
+        </p>
+        <p>
+          新しい知識を増やす前に、まずは知識を現場で使うための基本的な考え方を知ってほしい。<br>
+          そのため、今回の講義を無料で公開します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. 無料講義の受け取り方法
+  ============================================================ -->
+  <section class="section" id="how-to-get">
+    <div class="container">
+      <h2 class="section__title fade-in">無料講義の受け取り方法</h2>
+
+      <ol class="steps fade-in">
+        <li class="steps__item">
+          <span class="steps__number">STEP 1</span>
+          <p class="steps__text">「無料講義をLINEで受け取る」ボタンを押す</p>
+          <a href="https://example.com/line" data-cta="line" class="btn btn-primary">無料講義をLINEで受け取る</a>
+        </li>
+        <li class="steps__item">
+          <span class="steps__number">STEP 2</span>
+          <p class="steps__text">BAL公式LINEを友だち追加</p>
+        </li>
+        <li class="steps__item">
+          <span class="steps__number">STEP 3</span>
+          <p class="steps__text">登録後に届くURLから無料講義を視聴</p>
+        </li>
+        <li class="steps__item">
+          <span class="steps__number">STEP 4</span>
+          <p class="steps__text">現在の学習目的を選択</p>
+          <ul class="tag-list tag-list--purpose">
+            <li>技術力を高めたい</li>
+            <li>学んだ知識を現場で使いたい</li>
+            <li>売上や商品を伸ばしたい</li>
+            <li>AIや発信を仕事に活かしたい</li>
+            <li>今後のキャリアを考えたい</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. BAL STUDIOの簡単な紹介
+  ============================================================ -->
+  <section class="section section--alt" id="about-bal">
+    <div class="container container--narrow">
+      <h2 class="section__title fade-in">BAL STUDIOの簡単な紹介</h2>
+      <div class="text-block text-block--center fade-in">
+        <p>
+          この無料講義は、運動指導者・施術者の学びと仕事を支える「BAL STUDIO」の講義の一部です。
+        </p>
+        <p>BAL STUDIOでは、</p>
+        <ul class="tag-list tag-list--center">
+          <li>解剖学</li>
+          <li>評価</li>
+          <li>施術</li>
+          <li>運動</li>
+          <li>商品化</li>
+          <li>発信</li>
+          <li>AI</li>
+          <li>キャリア</li>
+          <li>事業づくり</li>
+        </ul>
+        <p>などを目的に合わせて学ぶことができます。</p>
+        <p>無料講義を視聴された方には、ご希望に応じてBAL STUDIOの体験利用についてもご案内します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. よくある質問
+  ============================================================ -->
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <h2 class="section__title fade-in">よくある質問</h2>
+
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>本当に無料ですか？</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p>はい。LINE登録後、無料で視聴できます。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>視聴期限はありますか？</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p>登録後7日間ご視聴いただけます。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>スマートフォンでも視聴できますか？</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p>はい。スマートフォン、タブレット、パソコンから視聴できます。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>学生でも視聴できますか？</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p>はい。運動指導や施術を学んでいる学生の方もご視聴いただけます。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>視聴後に料金が発生しますか？</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p>無料講義の視聴だけで料金が発生することはありません。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__question" aria-expanded="false">
+            <span>BAL STUDIOへの入会は必須ですか？</span>
+            <span class="faq-item__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p>いいえ。無料講義のみの視聴も可能です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. 最終CTA
+  ============================================================ -->
+  <section class="final-cta" id="final-cta">
+    <div class="container container--narrow">
+      <h2 class="final-cta__title fade-in">
+        知識を増やす前に、<br>
+        現場で使うための考え方を整理しませんか？
+      </h2>
+      <p class="final-cta__body fade-in">
+        評価、施術、運動の知識を、バラバラに覚えるのではなく、一つの判断の流れとしてつなげる。<br>
+        その第一歩を、無料講義から始めてください。
+      </p>
+      <div class="fade-in">
+        <a href="https://example.com/line" data-cta="line" class="btn btn-primary btn-large">無料講義をLINEで受け取る</a>
+        <p class="cta-note cta-note--light">
+          登録後、すぐに視聴できます。<br>
+          無料講義の視聴だけで料金は発生しません。
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 BAL STUDIO</p>
+  </div>
+</footer>
+
+<!-- スマートフォン用 追従CTA(PCでは非表示) -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="https://example.com/line" data-cta="line" class="btn btn-primary btn-block">無料講義をLINEで受け取る</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

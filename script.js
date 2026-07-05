@@ -5,12 +5,12 @@
 // ------------------------------------------------------------
 // 設定: ここだけ書き換えれば全体に反映されます
 //   LINE_URL : すべてのCTAボタン(data-cta="line")の遷移先。
-//              正式URL確定時はここを書き換えてください。
-//              ※HTML内の href="https://example.com/line" は
+//              正式URLはこの1箇所のみで管理しています。
+//              ※HTML内の href="https://lin.ee/VYgsvSm" は
 //                JS無効時のフォールバックです。
 // ------------------------------------------------------------
 const CONFIG = {
-  LINE_URL: "https://example.com/line"
+  LINE_URL: "https://lin.ee/VYgsvSm"
 };
 
 document.addEventListener("DOMContentLoaded", () => {

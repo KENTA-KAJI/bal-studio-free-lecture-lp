@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFaqAccordion();
   initFadeIn();
   initStickyCta();
+  initAnalyticsTracking();
 });
 
 // ------------------------------------------------------------
@@ -107,4 +108,39 @@ function initStickyCta() {
 
   window.addEventListener("scroll", toggleSticky, { passive: true });
   toggleSticky();
+}
+
+
+// ------------------------------------------------------------
+// GA4: LPセクション到達・LINE CTA位置別クリック計測
+// ------------------------------------------------------------
+function initAnalyticsTracking() {
+  if (typeof window.gtag !== "function") return;
+
+  const sectionIds = [
+    "hero", "pain", "steps-flow", "lecture-content", "shoulder-example",
+    "instructor", "about-bal", "how-to-get", "faq", "final-cta"
+  ];
+  const viewed = new Set();
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting || viewed.has(entry.target.id)) return;
+      viewed.add(entry.target.id);
+      gtag("event", "lp_view_" + entry.target.id.replace(/-/g, "_"));
+      sectionObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.25 });
+
+  sectionIds.forEach((id) => {
+    const section = document.getElementById(id);
+    if (section) sectionObserver.observe(section);
+  });
+
+  document.querySelectorAll('[data-cta="line"]').forEach((cta) => {
+    cta.addEventListener("click", () => {
+      const section = cta.closest("section");
+      const location = cta.closest("#sticky-cta") ? "sticky" : (section ? section.id : "other");
+      gtag("event", "line_click_" + location.replace(/-/g, "_"));
+    });
+  });
 }

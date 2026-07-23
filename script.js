@@ -4,13 +4,10 @@
 
 // ------------------------------------------------------------
 // 設定: ここだけ書き換えれば全体に反映されます
-//   LINE_URL : すべてのCTAボタン(data-cta="line")の遷移先。
-//              正式URLはこの1箇所のみで管理しています。
-//              ※HTML内の href="https://lin.ee/VYgsvSm" は
-//                JS無効時のフォールバックです。
 // ------------------------------------------------------------
 const CONFIG = {
-  LINE_URL: "https://lin.ee/VYgsvSm"
+  LINE_URL: "https://lin.ee/VYgsvSm",
+  TRAFFIC_STORAGE_KEY: "bal_lp_traffic"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -40,14 +37,11 @@ function initFaqAccordion() {
     const answer = btn.nextElementSibling;
     if (!answer) return;
 
-    // 初期状態(閉じた状態)を明示的にセット
     answer.style.maxHeight = "0px";
 
     btn.addEventListener("click", () => {
       const isOpen = btn.getAttribute("aria-expanded") === "true";
 
-      // 他のFAQは閉じない仕様(それぞれ独立して開閉可能)にする場合は
-      // 下のforEachブロックを削除してください。
       questions.forEach((otherBtn) => {
         if (otherBtn !== btn) {
           otherBtn.setAttribute("aria-expanded", "false");
@@ -110,9 +104,8 @@ function initStickyCta() {
   toggleSticky();
 }
 
-
 // ------------------------------------------------------------
-// GA4: LPセクション到達・LINE CTA位置別クリック計測
+// GA4: LPセクション到達・LINE CTA位置別クリック・流入元計測
 // ------------------------------------------------------------
 function initAnalyticsTracking() {
   if (typeof window.gtag !== "function") return;
@@ -121,12 +114,20 @@ function initAnalyticsTracking() {
     "hero", "pain", "steps-flow", "lecture-content", "shoulder-example",
     "instructor", "about-bal", "how-to-get", "faq", "final-cta"
   ];
+  const traffic = getTrafficAttribution();
   const viewed = new Set();
+
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting || viewed.has(entry.target.id)) return;
+      if (!entry.isIntersecting) return;
+
+      if (viewed.has(entry.target.id)) return;
+
       viewed.add(entry.target.id);
-      gtag("event", "lp_view_" + entry.target.id.replace(/-/g, "_"));
+      gtag("event", "lp_view_" + normalizeEventPart(entry.target.id), {
+        ...traffic,
+        section_name: entry.target.id
+      });
       sectionObserver.unobserve(entry.target);
     });
   }, { threshold: 0.25 });
@@ -138,9 +139,85 @@ function initAnalyticsTracking() {
 
   document.querySelectorAll('[data-cta="line"]').forEach((cta) => {
     cta.addEventListener("click", () => {
+      const isSticky = Boolean(cta.closest("#sticky-cta"));
       const section = cta.closest("section");
-      const location = cta.closest("#sticky-cta") ? "sticky" : (section ? section.id : "other");
-      gtag("event", "line_click_" + location.replace(/-/g, "_"));
+      const sectionContext = isSticky ? getVisibleSectionId(sectionIds) : (section ? section.id : "other");
+      const ctaPosition = isSticky ? "sticky" : sectionContext;
+      const eventName = isSticky
+        ? "line_click_sticky_" + normalizeEventPart(sectionContext)
+        : "line_click_" + normalizeEventPart(sectionContext);
+
+      gtag("event", eventName, {
+        ...traffic,
+        cta_position: ctaPosition,
+        section_context: sectionContext,
+        link_url: CONFIG.LINE_URL,
+        transport_type: "beacon"
+      });
     });
   });
+}
+
+function getVisibleSectionId(sectionIds) {
+  const viewportAnchor = Math.min(window.innerHeight * 0.35, 240);
+  let best = { id: "hero", distance: Infinity };
+
+  sectionIds.forEach((id) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+    const distance = Math.abs(rect.top - viewportAnchor);
+    if (distance < best.distance) best = { id, distance };
+  });
+
+  return best.id;
+}
+
+function normalizeEventPart(value) {
+  return String(value || "other").replace(/-/g, "_").replace(/[^a-zA-Z0-9_]/g, "");
+}
+
+function getTrafficAttribution() {
+  const params = new URLSearchParams(window.location.search);
+  const stored = readStoredTraffic();
+  const referrer = document.referrer || "";
+  const referrerSource = inferReferrerSource(referrer);
+
+  const traffic = {
+    traffic_source: params.get("utm_source") || stored.traffic_source || referrerSource || "direct",
+    traffic_medium: params.get("utm_medium") || stored.traffic_medium || (referrerSource ? "referral" : "none"),
+    traffic_campaign: params.get("utm_campaign") || stored.traffic_campaign || "(not set)",
+    traffic_content: params.get("utm_content") || stored.traffic_content || "(not set)"
+  };
+
+  try {
+    sessionStorage.setItem(CONFIG.TRAFFIC_STORAGE_KEY, JSON.stringify(traffic));
+  } catch (error) {
+    // ストレージが無効でもGA4の標準流入元は計測されるため処理を継続する。
+  }
+
+  return traffic;
+}
+
+function readStoredTraffic() {
+  try {
+    return JSON.parse(sessionStorage.getItem(CONFIG.TRAFFIC_STORAGE_KEY) || "{}");
+  } catch (error) {
+    return {};
+  }
+}
+
+function inferReferrerSource(referrer) {
+  if (!referrer) return "";
+
+  try {
+    const host = new URL(referrer).hostname.toLowerCase();
+    if (host.includes("instagram.com") || host.includes("l.instagram.com")) return "instagram";
+    if (host.includes("youtube.com") || host.includes("youtu.be")) return "youtube";
+    if (host.includes("tiktok.com")) return "tiktok";
+    return host.replace(/^www\./, "");
+  } catch (error) {
+    return "";
+  }
 }

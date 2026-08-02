@@ -33,12 +33,14 @@ for (const width of [390, 430]) {
       h1: style("h1"), h2: style("h2"), caseTitle: style(".case-title"), finalTitle: style(".final-title"), body: style("body"), cta: style(".cta"), caseCard: style(".case-flow > div"), faq: style(".faq summary"),
       tinyText: [...document.querySelectorAll("body *")].filter((el) => el.children.length === 0 && el.textContent.trim() && parseFloat(getComputedStyle(el).fontSize) < 11).map((el) => `${el.tagName}.${el.className}:${getComputedStyle(el).fontSize}`).slice(0, 20),
       memberLines: [...document.querySelectorAll(".member p")].map((el) => el.innerText.split("\n").length),
+      countUp: document.querySelector("[data-count-up]")?.textContent,
       overflowing: [...document.querySelectorAll("body *")].filter((el) => el.scrollWidth > el.clientWidth + 1).map((el) => `${el.tagName}.${el.className}`).slice(0, 20)
     };
   });
   console.log(JSON.stringify({ width, errors, stickyVisible, ...audit }));
   if (stickyVisible[0] || stickyVisible.slice(1).some((visible) => !visible)) process.exitCode = 1;
   if (audit.memberLines.some((lines) => lines !== 2)) process.exitCode = 1;
+  if (audit.countUp !== "3,000") process.exitCode = 1;
   await page.close();
 }
 await browser.close();

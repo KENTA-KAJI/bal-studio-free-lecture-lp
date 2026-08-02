@@ -32,6 +32,26 @@
   }, { threshold: 0.22 });
   document.querySelectorAll("[data-view-event]").forEach((section) => viewObserver.observe(section));
 
+  const countUp = document.querySelector("[data-count-up]");
+  if (countUp && !reducedMotion) {
+    const target = Number(countUp.getAttribute("data-count-up"));
+    countUp.textContent = "0";
+    const countObserver = new IntersectionObserver((entries, observer) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      const startedAt = window.performance.now();
+      const duration = 1200;
+      const draw = (now) => {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        countUp.textContent = Math.round(target * eased).toLocaleString("ja-JP");
+        if (progress < 1) window.requestAnimationFrame(draw);
+      };
+      window.requestAnimationFrame(draw);
+    }, { threshold: 0.6 });
+    countObserver.observe(countUp);
+  }
+
   if (!reducedMotion) {
     document.documentElement.classList.add("motion-ready");
     window.requestAnimationFrame(() => document.getElementById("hero")?.classList.add("hero-ready"));

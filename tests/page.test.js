@@ -22,3 +22,12 @@ test("LINE CTA fallback URLs are valid", () => {
   assert.ok(ctas.length >= 5);
   ctas.forEach((cta) => assert.match(cta, /href="https:\/\/lin\.ee\/VYgsvSm"/));
 });
+
+test("every CTA includes guidance for existing LINE members", () => {
+  assert.equal((html.match(/すでにBAL公式LINEを登録済みの方/g) || []).length, 4);
+  assert.match(html, /登録済みの方は「無料講義」と送信/);
+});
+
+test("case study explains the missing shoulder movement", () => {
+  for (const text of ["ショルダープレス", "抜けている動き", "肩関節の", "内旋・外旋"]) assert.ok(html.includes(text));
+});

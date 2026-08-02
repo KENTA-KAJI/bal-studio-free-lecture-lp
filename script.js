@@ -43,22 +43,5 @@
   });
 
   const sticky = document.getElementById("sticky");
-  const hero = document.getElementById("hero");
-  const shoulderExample = document.getElementById("shoulder-example");
-  const instructor = document.getElementById("instructor");
-  const aboutBal = document.getElementById("about-bal");
-  const howToGet = document.getElementById("how-to-get");
-  const faq = document.getElementById("faq");
-  const finalCta = document.getElementById("final-cta");
-  const updateSticky = () => {
-    const pastHero = window.scrollY > hero.offsetHeight * 0.7;
-    const blocked = [shoulderExample, instructor, aboutBal, howToGet, faq, finalCta].some((el) => {
-      const box = el.getBoundingClientRect();
-      return box.top < window.innerHeight && box.bottom > 0;
-    });
-    sticky.classList.toggle("show", pastHero && !blocked);
-  };
-  window.addEventListener("scroll", updateSticky, { passive: true });
-  window.addEventListener("resize", updateSticky);
-  updateSticky();
+  sticky.classList.add("show");
 })();

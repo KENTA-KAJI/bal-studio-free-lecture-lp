@@ -10,6 +10,12 @@ for (const width of [390, 430]) {
   page.on("console", (message) => { if (message.type() === "error") errors.push(message.text()); });
   await page.goto("http://127.0.0.1:5173/", { waitUntil: "networkidle" });
   await page.evaluate(() => document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible")));
+  const stickyVisible = [];
+  for (const ratio of [0, .25, .5, .75, 1]) {
+    await page.evaluate((value) => window.scrollTo(0, (document.body.scrollHeight - window.innerHeight) * value), ratio);
+    await page.waitForTimeout(50);
+    stickyVisible.push(await page.locator("#sticky").isVisible());
+  }
   for (const selector of ["#hero", "#pain", "#steps-flow", "#shoulder-example", "#how-to-get", "#faq", "#final-cta"]) {
     await page.locator(selector).scrollIntoViewIfNeeded();
     await page.waitForTimeout(100);
@@ -29,7 +35,8 @@ for (const width of [390, 430]) {
       overflowing: [...document.querySelectorAll("body *")].filter((el) => el.scrollWidth > el.clientWidth + 1).map((el) => `${el.tagName}.${el.className}`).slice(0, 20)
     };
   });
-  console.log(JSON.stringify({ width, errors, ...audit }));
+  console.log(JSON.stringify({ width, errors, stickyVisible, ...audit }));
+  if (stickyVisible.some((visible) => !visible)) process.exitCode = 1;
   await page.close();
 }
 await browser.close();

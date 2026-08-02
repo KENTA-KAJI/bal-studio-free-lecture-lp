@@ -1,496 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G2CTE6XRHF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G2CTE6XRHF');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>無料講義:TOP10%のトレーナーになるための実践解剖学｜BAL STUDIO</title>
-<meta name="description" content="筋肉の名称や起始停止を覚えるだけでは、現場での結果にはつながりません。解剖学を正しい順番で学び、現場で使える「武器」に変える考え方を無料講義で解説します。トレーナー・施術者向け、LINE登録後すぐに視聴可能。">
-
-<!-- OGP設定: og:image は下記プレースホルダーを実画像(推奨 1200x630px)に差し替えてください -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="無料講義:TOP10%のトレーナーになるための実践解剖学｜BAL STUDIO">
-<meta property="og:description" content="最速で結果の出る、一流トレーナーの「考え方」を無料講義で公開。トレーナー・施術者向け、LINE登録後すぐに視聴可能。">
-<meta property="og:image" content="https://example.com/ogp-image-placeholder.jpg">
-<meta property="og:url" content="https://example.com/">
-<meta property="og:locale" content="ja_JP">
-<meta name="twitter:card" content="summary_large_image">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>無料講義｜TOP10%のトレーナーになるための実践解剖学｜BAL STUDIO</title>
+  <meta name="description" content="解剖学を知識で終わらせず、評価・種目選択・施術に使える武器へ。トレーナー・施術者向けの実践解剖学講義をLINE登録後すぐに無料で視聴できます。">
+  <link rel="canonical" href="https://bal-studio-free-lecture-lp.vercel.app/">
+  <link rel="icon" href="picture/bal-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://bal-studio-free-lecture-lp.vercel.app/">
+  <meta property="og:title" content="無料講義｜TOP10%のトレーナーになるための実践解剖学">
+  <meta property="og:description" content="解剖学を「知っている」から「現場で使える」へ。一流トレーナーの考え方を無料講義で解説します。">
+  <meta property="og:image" content="https://bal-studio-free-lecture-lp.vercel.app/picture/free-lecture-thumbnail-16x9.jp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2CTE6XRHF"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-G2CTE6XRHF');</script>
 </head>
 <body>
-
-<!--
-  ============================================================
-  ▼ 設定値の変更場所（すべて script.js 冒頭の CONFIG）
-    ・LINE登録URL : CONFIG.LINE_URL
-  すべてのCTAボタン(data-cta="line")の遷移先は CONFIG.LINE_URL
-  1箇所を書き換えるだけで一括反映されます。
-  (HTML内の href="https://lin.ee/VYgsvSm" は JS 無効時の
-   フォールバック用です。正式URL確定時はこちらも合わせて変更してください)
-  ============================================================
--->
-
-<header class="site-header">
-  <div class="container site-header__inner">
-    <img class="logo" src="picture/bal-logo.png" alt="BAL STUDIO" width="1200" height="300">
-  </div>
-</header>
-
-<main>
-
-  <!-- ============================================================
-       1. ファーストビュー
-  ============================================================ -->
-  <section class="hero" id="hero">
-    <div class="container hero__inner">
-      <div class="hero__text fade-in">
-        <p class="eyebrow">トレーナー・施術者向け｜無料動画講義</p>
-
-        <h1 class="hero__title">
-          解剖学を、<br>
-          学んだだけで終わらせていませんか？
-        </h1>
-
-        <p class="hero__subtitle">
-          筋肉の名称や起始停止を覚えるだけでは、現場での結果にはつながりません。解剖学を正しい順番で学び、トレーニング・ストレッチ・施術に使える「武器」へ変える考え方を無料講義で解説します。
-        </p>
-
-        <div class="hero__lecture-card">
-          <p class="hero__lecture-label">FREE LECTURE</p>
-          <p class="hero__lecture-title">TOP10%のトレーナーになるための実践解剖学</p>
-          <p class="hero__lecture-sub">最速で結果の出る、一流トレーナーの「考え方」</p>
+  <header class="header"><div class="wrap"><img src="picture/bal-logo.png" width="160" height="40" alt="BAL STUDIO"></div></header>
+  <main>
+    <section class="hero track" id="hero" data-view-event="lp_view_hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">トレーナー・施術者向け｜完全無料動画講義</p>
+          <h1>解剖学を学んでも、<br><em>なぜ現場で使えないのか？</em></h1>
+          <p class="lead">筋肉の名称や起始・停止を覚えるだけでは、評価や種目、手技を自分で選べるようにはなりません。</p>
+          <p>必要なのは、知識の量ではなく、人体の全体像から順番に学び、現場の判断へ変える「考え方」です。</p>
+          <ul class="mini-benefits"><li>解剖学を何から学べばよいか</li><li>評価や種目を選ぶときの考え方</li><li>知識を自分の専門性につなげる方法</li></ul>
         </div>
-
-        <ul class="badge-list" aria-label="この講義について">
-          <li class="badge">LINE登録後すぐ視聴</li>
-          <li class="badge">無料</li>
-          <li class="badge">スマートフォン対応</li>
-        </ul>
-      </div>
-
-      <div class="hero__media fade-in">
-        <!-- 差し替え済み: picture/free-lecture-thumbnail-16x9.jp.png -->
-        <figure class="media-thumb">
-          <img src="picture/free-lecture-thumbnail-16x9.jp.png" alt="無料講義「TOP10%のトレーナーになるための実践解剖学」サムネイル" width="1672" height="941" loading="eager">
-          <span class="media-thumb__play" aria-hidden="true">
-            <svg viewBox="0 0 64 64" width="64" height="64">
-              <circle cx="32" cy="32" r="31" fill="rgba(5,5,5,0.55)" stroke="var(--color-gold)" stroke-width="1.5"/>
-              <path d="M26 20 L46 32 L26 44 Z" fill="var(--color-gold)"/>
-            </svg>
-          </span>
-        </figure>
-      </div>
-
-      <div class="hero__cta fade-in">
-        <a href="https://lin.ee/VYgsvSm" data-cta="line" class="btn btn-primary btn-large">
-          無料講義をLINEで受け取る
-        </a>
-        <p class="cta-note">無料講義の視聴だけで料金は発生しません。</p>
-        <div class="existing-member-box">
-          <p class="existing-member-box__title">すでにBAL公式LINEを登録済みの方</p>
-          <p class="existing-member-box__desc">
-            友だち追加は不要です。<br>
-            LINEのトーク画面で「<span class="kw-badge">無料講義</span>」と送信してください。
-          </p>
+        <div class="hero-visual reveal"><img src="picture/free-lecture-thumbnail-16x9.jp.png" width="1672" height="941" alt="TOP10%のトレーナーになるための実践解剖学 無料講義" fetchpriority="high"></div>
+        <div class="hero-action reveal">
+          <p class="lecture-name"><small>FREE LECTURE</small>TOP10%のトレーナーになるための実践解剖学</p>
+          <a class="cta" data-cta="line" data-event="line_click_hero" href="https://lin.ee/VYgsvSm">LINEで無料講義を今すぐ視聴する<span>登録後すぐ視聴｜完全無料｜スマートフォン対応</span></a>
+          <p class="note">無料講義の視聴だけで料金は発生しません。</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================================
-       2. どんな人向けの講義か
-  ============================================================ -->
-  <section class="section section--light" id="pain">
-    <div class="container container--narrow">
-      <p class="eyebrow eyebrow--center">WHO IS THIS FOR</p>
-      <h2 class="section__title">こんな学び方に<br class="sp-only">なっていませんか？</h2>
+    <section class="section light track" id="pain" data-view-event="lp_view_pain"><div class="wrap narrow">
+      <p class="eyebrow center">DOES THIS SOUND FAMILIAR?</p><h2>こんな経験はありませんか？</h2>
+      <ul class="pain-list reveal"><li>筋肉の名称や起始・停止は覚えたが、現場で活用できない</li><li>教わった種目や手技を、そのまま使っている</li><li>なぜその評価や動きを選ぶのか説明できない</li><li>学ぶほど知識が増え、何から整理すればよいか分からない</li></ul>
+      <p class="statement reveal">一つでも当てはまっても、学びが足りないとは限りません。<strong>多くの場合、部分的な知識から学び、人体の全体像と基本を押さえていないこと</strong>が原因です。</p>
+      <p class="bridge">では、解剖学を何から、どの順番で学べば、評価や指導に使えるようになるのでしょうか？</p>
+    </div></section>
 
-      <p class="pain-target fade-in">
-        パーソナルトレーナー／理学療法士・作業療法士／柔道整復師・鍼灸師／整体師・セラピスト／ピラティス・ヨガインストラクター、そして学ぶ学生の方へ。
-      </p>
-
-      <ul class="pain-list fade-in">
-        <li>筋肉の名称や起始停止は覚えたが、現場で活用できていない</li>
-        <li>セミナーで教わった種目や手技を、そのまま使っている</li>
-        <li>なぜその評価や運動を選ぶのか説明できない</li>
-        <li>学ぶ内容が増えるほど、何から整理すればよいか分からなくなる</li>
-        <li>解剖学を学んでも、自分の専門性や強みにつながっていない</li>
-      </ul>
-
-      <div class="callout fade-in">
-        <p>
-          問題は、学んでいる量が足りないことではありません。<br>
-          解剖学の全体像と基本を押さえず、知識を実践へ変える方法を学んでいないことにあります。
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       3. 講義を見ることで何が分かるか(学ぶ順番・5STEP)
-  ============================================================ -->
-  <section class="section section--dark" id="steps-flow">
-    <div class="container">
-      <p class="eyebrow eyebrow--center">LEARNING FLOW</p>
-      <h2 class="section__title">解剖学を武器にするための、<br class="sp-only">学ぶ順番が分かります</h2>
-
-      <ol class="flow fade-in" aria-label="解剖学を武器にするための学ぶ順番">
-        <li class="flow__item">
-          <span class="flow__num">1</span>
-          <p class="flow__label">人体と解剖学の全体像を知る</p>
-          <p class="flow__desc">いきなり筋肉から始めるのではなく、人体がどのような構造と系統で成り立っているかを把握する</p>
-        </li>
-        <li class="flow__item">
-          <span class="flow__num">2</span>
-          <p class="flow__label">解剖学の基本を押さえる</p>
-          <p class="flow__desc">基準面、軸、方向、運動を示す用語など、専門職として必要な共通言語を身につける</p>
-        </li>
-        <li class="flow__item">
-          <span class="flow__num">3</span>
-          <p class="flow__label">運動器を順番に学ぶ</p>
-          <p class="flow__desc">骨格系、筋系、神経系を、バラバラではなくつながりとして理解する</p>
-        </li>
-        <li class="flow__item">
-          <span class="flow__num">4</span>
-          <p class="flow__label">知識を現場で使う</p>
-          <p class="flow__desc">トレーニング、ストレッチ、リリース、施術へ、解剖学の知識を変換する</p>
-        </li>
-        <li class="flow__item">
-          <span class="flow__num">5</span>
-          <p class="flow__label">専門性や強みへ発展させる</p>
-          <p class="flow__desc">学んだ知識を、自分の専門分野やサービスへつなげる</p>
-        </li>
+    <section class="section dark track" id="steps-flow" data-view-event="lp_view_steps_flow"><div class="wrap">
+      <p class="eyebrow center">LEARNING FLOW</p><h2>解剖学を武器にするための<br>5つの学習段階</h2>
+      <ol class="flow reveal">
+        <li><b>01</b><div><h3>人体の全体像を知る</h3><p>人体を構成する仕組みを捉え、これから学ぶ知識が全体のどこに位置するのかを理解します。</p></div></li>
+        <li><b>02</b><div><h3>解剖学の共通言語を身につける</h3><p>基準面・軸・方向・運動を表す用語を学び、身体の動きを正確に読み解けるようにします。</p></div></li>
+        <li><b>03</b><div><h3>骨格系・筋系・神経系をつなげる</h3><p>それぞれを別々に暗記せず、身体の構造と運動のつながりとして理解します。</p></div></li>
+        <li><b>04</b><div><h3>知識を現場の判断へ変える</h3><p>目的や評価に合わせ、トレーニング・ストレッチ・施術を選ぶ考え方を身につけます。</p></div></li>
+        <li><b>05</b><div><h3>自分の専門性へ発展させる</h3><p>学んだ知識を、自分の指導・施術・サービスの強みへつなげます。</p></div></li>
       </ol>
-    </div>
-  </section>
+      <p class="flow-summary">この順番が分かると、解剖学は「覚えるもの」から、現場で判断するための基準へ変わります。</p>
+      <a class="cta compact" data-cta="line" data-event="line_click_lecture_content" href="https://lin.ee/VYgsvSm">無料講義で「学ぶ順番」を確認する</a>
+    </div></section>
 
-  <!-- ============================================================
-       4. 無料講義の内容
-  ============================================================ -->
-  <section class="section section--dark" id="lecture-content">
-    <div class="container">
-      <p class="eyebrow eyebrow--center">FREE LECTURE</p>
-      <h2 class="section__title">この無料講義で学べること</h2>
+    <section class="section ivory track" id="lecture-content" data-view-event="lp_view_lecture_content"><div class="wrap split">
+      <div class="reveal"><p class="eyebrow">FREE LECTURE</p><h2>知識を、現場で使える<br>「考え方」へ。</h2><p>この無料講義では、解剖学を暗記で終わらせず、トレーニング・ストレッチ・施術に使える武器へ変える方法を解説します。</p>
+      <ul class="checks"><li>解剖学を何から学べばよいか</li><li>評価や種目を選ぶときの考え方</li><li>骨格・筋・神経をつなげて理解する方法</li><li>学びを自分の専門性へ発展させる方法</li></ul></div>
+      <figure class="reveal"><img src="picture/minami-lecture.jpg.png" width="700" height="400" loading="lazy" alt="ミナミヨシトによる実践解剖学講義の様子"></figure>
+    </div></section>
 
-      <div class="lecture-card fade-in">
-        <p class="lecture-card__label">FREE LECTURE</p>
-        <p class="lecture-card__title">TOP10%のトレーナーになるための実践解剖学</p>
-        <p class="lecture-card__sub">最速で結果の出る、一流トレーナーの「考え方」</p>
+    <section class="section light track" id="shoulder-example" data-view-event="lp_view_shoulder_example"><div class="wrap narrow">
+      <p class="eyebrow center">CASE STUDY</p><h2>「教わった種目を行う」から<br>「目的に合わせて自分で選ぶ」へ。</h2>
+      <div class="case-flow reveal"><div><small>これまで</small><b>フロントレイズ<br>サイドレイズ<br>リアレイズ</b></div><i>→</i><div><small>解剖学で確認</small><b>基準面・軸<br>内旋・外旋<br>肩関節の運動</b></div><i>→</i><div class="accent"><small>現場で判断</small><b>抜けている動きを見つけ<br>必要な種目を選べる</b></div></div>
+      <p class="statement">種目を暗記するのではなく、<strong>なぜ必要なのかを考えられる。</strong><br>これが、解剖学を現場で使うということです。</p>
+    </div></section>
+
+    <section class="section dark track" id="instructor" data-view-event="lp_view_instructor"><div class="wrap profile">
+      <img class="reveal" src="picture/minami-profile.jpg.jpg" width="700" height="400" loading="lazy" alt="講師 ミナミヨシト">
+      <div class="reveal"><p class="eyebrow">INSTRUCTOR</p><h2>ミナミヨシト</h2><p class="muted">BAL株式会社 代表取締役 / JPTA代表理事</p><p>運動指導者・施術者向けの教育事業を通じて、解剖学・評価・施術・運動など、現場に必要な学びを提供。全国での講師活動や国内外での解剖実習を重ね、「知っている」と「使える」の間にある課題に向き合ってきました。</p><p>今回の講義では、解剖学を単なる暗記で終わらせず、自分の指導や施術へつなげるための考え方をお伝えします。</p></div>
+    </div></section>
+
+    <section class="section ivory track" id="about-bal" data-view-event="lp_view_about_bal"><div class="wrap split reverse">
+      <div><p class="eyebrow">ABOUT BAL STUDIO</p><h2>現場で使える学びを、<br>一流の指導者から。</h2><p>この無料講義は、BAL STUDIOの学びの一部です。BAL STUDIOは、運動指導者・施術者が解剖学、評価、施術、運動など、現場に必要な知識と技術を学ぶオンライン学習環境です。</p><p class="note-card">この講義の視聴に、BAL STUDIOへの入会は必要ありません。視聴後、希望される方にのみ体験利用をご案内します。</p></div>
+      <img src="picture/studio-screen-desktop.jpg" width="1760" height="990" loading="lazy" alt="BAL STUDIOのオンライン講義一覧画面">
+    </div></section>
+
+    <section class="section light track" id="how-to-get" data-view-event="lp_view_how_to_get"><div class="wrap narrow">
+      <p class="eyebrow center">HOW TO WATCH</p><h2>無料講義の受け取り方</h2>
+      <ol class="get-steps reveal"><li><b>1</b>ボタンからBAL公式LINEを友だち追加</li><li><b>2</b>LINEの案内に沿って無料講義を受け取る</li><li><b>3</b>スマートフォンですぐに視聴</li></ol>
+      <a class="cta" data-cta="line" data-event="line_click_how_to_get" href="https://lin.ee/VYgsvSm">無料講義で、現場で使う考え方を学ぶ<span>登録後すぐ視聴｜完全無料</span></a>
+      <div class="member"><b>すでにBAL公式LINEを登録済みの方</b><p>友だち追加は不要です。LINEのトーク画面で「無料講義」と送信してください。</p></div>
+    </div></section>
+
+    <section class="section ivory track" id="faq" data-view-event="lp_view_faq"><div class="wrap narrow">
+      <p class="eyebrow center">FAQ</p><h2>よくあるご質問</h2>
+      <div class="faq">
+        <details><summary>本当に無料ですか？</summary><p>はい。無料講義の視聴だけで料金が発生することはありません。</p></details>
+        <details><summary>スマートフォンでも視聴できますか？</summary><p>はい。スマートフォン、タブレット、パソコンで視聴できます。</p></details>
+        <details><summary>解剖学初心者でも視聴できますか？</summary><p>はい。解剖学をどこから、どの順番で学ぶかを基礎から整理する内容です。</p></details>
+        <details><summary>BAL STUDIOへの入会は必要ですか？</summary><p>いいえ。無料講義はBAL STUDIOへ入会せずに視聴できます。</p></details>
+        <details><summary>視聴後に自動で入会・課金されますか？</summary><p>いいえ。自動で入会になったり、課金されたりすることはありません。</p></details>
+        <details><summary>すでにBAL公式LINEを登録している場合は？</summary><p>LINEのトーク画面で「無料講義」と送信してください。友だち追加は不要です。</p></details>
       </div>
+    </div></section>
 
-      <!-- 差し替え済み: picture/minami-lecture.jpg.png (講義風景の実写真) -->
-      <figure class="lecture-thumb fade-in">
-        <img src="picture/minami-lecture.jpg.png" alt="ミナミヨシトによる講義の様子" width="700" height="400" loading="lazy">
-      </figure>
-
-      <ul class="check-list fade-in">
-        <li>解剖学を学ぶ前に把握すべき全体像</li>
-        <li>基本を飛ばすと現場で使えなくなる理由</li>
-        <li>骨格系、筋系、神経系を学ぶ順番</li>
-        <li>知識をトレーニングや施術へつなげる考え方</li>
-        <li>種目や手技を暗記せず、自分で考える方法</li>
-        <li>解剖学を専門性や差別化へ発展させる考え方</li>
-      </ul>
-
-      <div class="text-block fade-in" style="max-width:640px;margin:0 auto;text-align:center;">
-        <p>この講義は、特定の筋肉や種目だけを解説する講義ではありません。今後どの分野を学ぶ場合にも必要になる、解剖学の「学び方」と「使い方」を整理する講義です。</p>
-      </div>
-
-      <div class="cta-inline fade-in">
-        <a href="https://lin.ee/VYgsvSm" data-cta="line" class="btn btn-primary">無料講義をLINEで受け取る</a>
-        <div class="existing-member-box existing-member-box--light">
-          <p class="existing-member-box__title">すでにBAL公式LINEを登録済みの方</p>
-          <p class="existing-member-box__desc">
-            友だち追加は不要です。<br>
-            LINEのトーク画面で「<span class="kw-badge">無料講義</span>」と送信してください。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       5. 肩のトレーニングを使った具体例
-  ============================================================ -->
-  <section class="section section--light" id="shoulder-example">
-    <div class="container">
-      <p class="eyebrow eyebrow--center">CASE STUDY</p>
-      <h2 class="section__title">
-        「肩をまんべんなく鍛える」<br>
-        その種目選びに、抜けはありませんか？
-      </h2>
-
-      <div class="shoulder-grid fade-in">
-        <div class="shoulder-col">
-          <p class="shoulder-col__label">教わった種目</p>
-          <ul>
-            <li>フロントレイズ</li>
-            <li>サイドレイズ</li>
-            <li>リアレイズ</li>
-            <li>ショルダープレス</li>
-          </ul>
-        </div>
-        <div class="shoulder-arrow" aria-hidden="true">→</div>
-        <div class="shoulder-col">
-          <p class="shoulder-col__label">基準面と軸で確認すると</p>
-          <p class="shoulder-col__text">屈曲・伸展、外転・内転の動きは含まれている</p>
-        </div>
-        <div class="shoulder-arrow" aria-hidden="true">→</div>
-        <div class="shoulder-col shoulder-col--gap">
-          <p class="shoulder-col__label">抜けている動き</p>
-          <p class="shoulder-col__text">肩関節の<strong>内旋・外旋</strong>運動</p>
-        </div>
-      </div>
-
-      <p class="text-block__lead fade-in">
-        解剖学の基本が理解できると、<br class="sp-only">
-        「教わった種目を行う」から、<br>
-        目的に合わせて必要な種目を自分で選ぶ<br class="sp-only">
-        へ変わります。
-      </p>
-
-      <p class="callout--onlight fade-in">
-        種目を暗記するのではなく、なぜ必要なのかを考えられる。これが、解剖学を現場で使うということです。
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       6. 講師紹介
-  ============================================================ -->
-  <section class="section section--dark" id="instructor">
-    <div class="container instructor__inner">
-      <div class="instructor__media fade-in">
-        <!-- 差し替え済み: picture/minami-profile.jpg.jpg -->
-        <img class="avatar-placeholder" src="picture/minami-profile.jpg.jpg" alt="ミナミヨシト" width="700" height="400" loading="lazy">
-      </div>
-      <div class="instructor__content fade-in">
-        <p class="instructor__role">INSTRUCTOR</p>
-        <p class="instructor__name">ミナミヨシト</p>
-        <div class="text-block">
-          <p>
-            運動指導者・施術者向けの教育事業を通じて、解剖学、評価、施術、運動など、現場に必要な学びを提供。
-          </p>
-          <p>
-            全国での講師活動や国内外での解剖実習を通じて、「解剖学を知っていること」と「現場で使えること」は同じではない、という課題を感じてきました。
-          </p>
-          <p>
-            今回の講義では、解剖学を単なる暗記で終わらせず、トレーニングや施術、自分の専門性へつなげるための考え方をお伝えします。
-          </p>
-        </div>
-
-        <!-- 差し替え済み: picture/anatomy-training.jpg.jpg(海外解剖実習の様子・補助写真) -->
-        <figure class="instructor-photo">
-          <img src="picture/anatomy-training.jpg.jpg" alt="海外での解剖実習の様子" width="2048" height="1365" loading="lazy">
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       7. BAL STUDIOの簡単な紹介
-  ============================================================ -->
-  <section class="section section--dark" id="about-bal">
-    <div class="container about-bal__inner">
-      <div class="about-bal__content fade-in">
-        <p class="eyebrow">ABOUT BAL STUDIO</p>
-        <h2 class="section__title section__title--left">
-          この無料講義は、<br class="sp-only">
-          BAL STUDIOの学びの一部です
-        </h2>
-        <div class="text-block">
-          <p>
-            BAL STUDIOは、運動指導者・施術者が、解剖学、評価、施術、運動など、現場で必要な知識と技術を学ぶためのオンライン学習環境です。
-          </p>
-          <p>
-            無料講義で学び方や考え方を知った後は、さまざまな講義や講師の視点を通して、知識を現場で使える形へ深めていくことができます。
-          </p>
-          <p>
-            また、学んだ知識や自分の経験を、商品化・発信・AI活用・売上・キャリアへつなげたい方に向けては、関連する成長支援サービスも展開予定です。
-          </p>
-          <p>
-            BAL STUDIOは、現場で使える土台をつくる場所。その先の成長支援では、学びを実行し、仕事へ変えるためのサポートを行います。
-          </p>
-          <p>
-            無料講義を視聴された方には、LINEでBAL STUDIOの体験利用についてもご案内します。
-          </p>
-        </div>
-
-        <div class="growth-tag">
-          <span class="growth-tag__label">RELATED GROWTH SUPPORT</span>
-        </div>
-
-        <p class="about-bal__note">※BAL STUDIOと成長支援サービスは、それぞれ別サービス・別契約です。</p>
-      </div>
-
-      <div class="about-bal__media fade-in">
-        <!-- 差し替え済み: picture/studio-screen-desktop.jpg(STUDIOコンテンツ一覧画面) -->
-        <figure class="about-bal__figure">
-          <img src="picture/studio-screen-desktop.jpg" alt="BAL STUDIOのコンテンツ一覧画面(複数の講師・複数の講義を掲載)" width="1800" height="1000" loading="lazy">
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       8. 無料講義の受け取り方法
-  ============================================================ -->
-  <section class="section section--light" id="how-to-get">
-    <div class="container">
-      <p class="eyebrow eyebrow--center">HOW TO GET STARTED</p>
-      <h2 class="section__title">無料講義の受け取り方法</h2>
-
-      <ol class="steps fade-in">
-        <li class="steps__item">
-          <span class="steps__number">STEP 1</span>
-          <p class="steps__text">ボタンを押す</p>
-        </li>
-        <li class="steps__item">
-          <span class="steps__number">STEP 2</span>
-          <p class="steps__text">BAL公式LINEを友だち追加</p>
-        </li>
-        <li class="steps__item">
-          <span class="steps__number">STEP 3</span>
-          <p class="steps__text">届いたURLから無料講義を視聴</p>
-        </li>
-      </ol>
-
-      <p class="steps-note fade-in">登録後、すぐに視聴できます。</p>
-
-      <div class="cta-inline fade-in">
-        <a href="https://lin.ee/VYgsvSm" data-cta="line" class="btn btn-primary">無料講義をLINEで受け取る</a>
-        <div class="existing-member-box existing-member-box--light">
-          <p class="existing-member-box__title">すでにBAL公式LINEを登録済みの方</p>
-          <p class="existing-member-box__desc">
-            友だち追加は不要です。<br>
-            LINEのトーク画面で「<span class="kw-badge">無料講義</span>」と送信してください。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       9. よくある質問
-  ============================================================ -->
-  <section class="section section--light" id="faq">
-    <div class="container container--narrow">
-      <p class="eyebrow eyebrow--center">FAQ</p>
-      <h2 class="section__title">よくある質問</h2>
-
-      <div class="faq-list fade-in">
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>本当に無料ですか？</span>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </button>
-          <div class="faq-item__answer">
-            <p>はい。LINE登録後、無料で視聴できます。</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>スマートフォンでも視聴できますか？</span>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </button>
-          <div class="faq-item__answer">
-            <p>はい。スマートフォン、タブレット、パソコンから視聴できます。</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>解剖学初心者でも視聴できますか？</span>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </button>
-          <div class="faq-item__answer">
-            <p>はい。解剖学の全体像や基本的な考え方から解説します。すでに学んでいる方も、知識を現場でどう使うかという視点で復習できます。</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>BAL STUDIOへの入会は必須ですか？</span>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </button>
-          <div class="faq-item__answer">
-            <p>いいえ。無料講義のみの視聴も可能です。希望される方には、LINEでBAL STUDIOの体験利用をご案内します。</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-item__question" aria-expanded="false">
-            <span>商品化やAI活用もBAL STUDIOで学べますか？</span>
-            <span class="faq-item__icon" aria-hidden="true"></span>
-          </button>
-          <div class="faq-item__answer">
-            <p>商品化、発信、AI活用、売上、キャリアなどは、BAL STUDIOと関連する別の成長支援サービスで扱う予定です。各サービスは別契約となります。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       10. 最終CTA
-  ============================================================ -->
-  <section class="final-cta" id="final-cta">
-    <div class="container container--narrow">
-      <h2 class="final-cta__title fade-in">
-        解剖学を、<br>
-        知識のままで終わらせないために。
-      </h2>
-      <p class="final-cta__body fade-in">
-        正しい順番で学び、現場で使い、自分の専門性へ変えていく。<br class="pc-only">
-        その第一歩を、無料講義から始めてください。
-      </p>
-      <div class="fade-in">
-        <a href="https://lin.ee/VYgsvSm" data-cta="line" class="btn btn-primary btn-large">無料講義をLINEで受け取る</a>
-        <p class="cta-note cta-note--light">
-          登録後すぐに視聴できます。<br>
-          無料講義の視聴だけで料金は発生しません。
-        </p>
-        <div class="existing-member-box">
-          <p class="existing-member-box__title">すでにBAL公式LINEを登録済みの方</p>
-          <p class="existing-member-box__desc">
-            友だち追加は不要です。<br>
-            LINEのトーク画面で「<span class="kw-badge">無料講義</span>」と送信してください。
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>&copy; 2026 BAL STUDIO</p>
-  </div>
-</footer>
-
-<!-- スマートフォン用 追従CTA(PCでは非表示) -->
-<div class="sticky-cta" id="sticky-cta">
-  <a href="https://lin.ee/VYgsvSm" data-cta="line" class="btn btn-primary btn-block">無料講義をLINEで受け取る</a>
-  <p class="sticky-cta__note">
-    すでにLINE登録済みの方は<br>
-    「<span class="kw-badge kw-badge--sticky">無料講義</span>」と送信
-  </p>
-</div>
-
-<script src="script.js"></script>
+    <section class="final track" id="final-cta" data-view-event="lp_view_final_cta"><div class="wrap narrow reveal">
+      <p class="eyebrow center">START HERE</p><h2>解剖学を、<br>知識のままで終わらせないために。</h2><p>今の学び方を続ける前に、まずは現場で使うための「正しい順番」を確認してください。</p>
+      <a class="cta" data-cta="line" data-event="line_click_final_cta" href="https://lin.ee/VYgsvSm">LINEで無料講義を今すぐ視聴する<span>登録後すぐ視聴｜完全無料｜スマートフォン対応</span></a>
+      <p class="note">無料講義の視聴だけで料金は発生せず、BAL STUDIOへ自動入会することもありません。</p>
+    </div></section>
+  </main>
+  <footer><img src="picture/bal-logo.png" width="120" height="30" alt="BAL STUDIO"><p>© BAL Inc.</p></footer>
+  <div class="sticky" id="sticky"><a data-cta="line" data-event="line_click_sticky_mobile" href="https://lin.ee/VYgsvSm">LINEで無料講義を視聴する</a><small>登録済みの方は「無料講義」と送信</small></div>
+  <script src="script.js" type="module"></script>
 </body>
 </html>

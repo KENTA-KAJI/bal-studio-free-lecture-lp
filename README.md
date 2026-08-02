@@ -1,27 +1,42 @@
 # BAL STUDIO 無料講義LP
 
-「なぜ、解剖学を学んでも現場で使えないのか」をテーマにした、トレーナー・施術者向け無料講義のランディングページです。
+トレーナー・施術者向け無料講義「TOP10%のトレーナーになるための実践解剖学」のランディングページです。
 
-## ファイル構成
+## セットアップ（Windows PowerShell）
 
-- `index.html` — ページ本体
-- `style.css` — スタイル
-- `script.js` — LINE登録URLの反映、FAQアコーディオン、フェードインなどの挙動
-
-## 使い方
-
-`index.html` をブラウザで開くだけで表示できます。
-
-## LINE登録URLの変更
-
-すべてのCTAボタンの遷移先は `script.js` 冒頭の `CONFIG.LINE_URL` で一括管理されています。実際のURLに差し替える場合はここを書き換えてください。
-
-```js
-const CONFIG = {
-  LINE_URL: "https://example.com/line"
-};
+```powershell
+git clone https://github.com/KENTA-KAJI/bal-studio-free-lecture-lp.git
+cd bal-studio-free-lecture-lp
+npm install
+npm run dev
 ```
 
-## OGP画像の設定
+既にclone済みの場合は、次の手順で更新できます。
 
-`index.html` 内の `og:image` はプレースホルダーです。公開前に実画像（推奨 1200×630px）のURLに差し替えてください。
+```powershell
+git pull
+npm install
+npm run dev
+```
+
+Node.js 22.xを使用します。本番用ファイルは `npm run build` で `dist` フォルダに生成されます。
+
+## 環境変数
+
+環境変数やSecretは不要です。LINE URLとGA4測定IDは既存値を引き継いでいます。
+
+## Vercel
+
+既存のVercelプロジェクトがGitHubの `main` ブランチに接続されています。`main` へのpush後、自動で本番へ反映されます。
+
+- 本番URL: https://bal-studio-free-lecture-lp.vercel.app/
+- Build command: `npm run build`
+- Output directory: `dist`
+
+## 計測イベント
+
+セクション到達: `lp_view_hero`, `lp_view_pain`, `lp_view_steps_flow`, `lp_view_lecture_content`, `lp_view_shoulder_example`, `lp_view_instructor`, `lp_view_about_bal`, `lp_view_how_to_get`, `lp_view_faq`, `lp_view_final_cta`
+
+CTA: `line_click_hero`, `line_click_lecture_content`, `line_click_how_to_get`, `line_click_final_cta`, `line_click_sticky_mobile`
+
+LINEリンクを変更する場合は `script.js` 冒頭の `LINE_URL` と、HTML内のフォールバックURLを同時に変更してください。

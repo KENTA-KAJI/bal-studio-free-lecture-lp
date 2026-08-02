@@ -1,4 +1,9 @@
 (() => {
+  if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+  const resetScroll = () => window.requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }));
+  window.addEventListener("pageshow", resetScroll);
+  resetScroll();
+
   const LINE_URL = "https://lin.ee/VYgsvSm";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const send = (name, params = {}) => {

@@ -50,5 +50,14 @@ await reduced.goto("http://127.0.0.1:5173/", { waitUntil: "networkidle" });
 assert.equal(await reduced.locator("html").evaluate((el) => el.classList.contains("motion-ready")), false);
 assert.equal(await reduced.locator(".reveal").first().evaluate((el) => getComputedStyle(el).opacity), "1");
 await reduced.close();
+
+const reloadPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+await reloadPage.goto("http://127.0.0.1:5173/", { waitUntil: "networkidle" });
+await reloadPage.evaluate(() => window.scrollTo(0, 4200));
+assert.ok(await reloadPage.evaluate(() => window.scrollY) > 1000);
+await reloadPage.reload({ waitUntil: "networkidle" });
+await reloadPage.waitForTimeout(100);
+assert.equal(await reloadPage.evaluate(() => window.scrollY), 0);
+await reloadPage.close();
 await browser.close();
 console.log(JSON.stringify(motion, null, 2));

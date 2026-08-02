@@ -24,7 +24,7 @@ for (const width of [390, 430]) {
     return {
       viewport: document.documentElement.clientWidth,
       scrollWidth: document.documentElement.scrollWidth,
-      h1: style("h1"), h2: style("h2"), body: style("body"), cta: style(".cta"), caseCard: style(".case-flow > div"), faq: style(".faq summary"),
+      h1: style("h1"), h2: style("h2"), caseTitle: style(".case-title"), finalTitle: style(".final-title"), body: style("body"), cta: style(".cta"), caseCard: style(".case-flow > div"), faq: style(".faq summary"),
       tinyText: [...document.querySelectorAll("body *")].filter((el) => el.children.length === 0 && el.textContent.trim() && parseFloat(getComputedStyle(el).fontSize) < 11).map((el) => `${el.tagName}.${el.className}:${getComputedStyle(el).fontSize}`).slice(0, 20),
       overflowing: [...document.querySelectorAll("body *")].filter((el) => el.scrollWidth > el.clientWidth + 1).map((el) => `${el.tagName}.${el.className}`).slice(0, 20)
     };

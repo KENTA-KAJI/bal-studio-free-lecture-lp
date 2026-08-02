@@ -14,7 +14,7 @@ for (const width of [390, 430]) {
   for (const ratio of [0, .25, .5, .75, 1]) {
     await page.evaluate((value) => window.scrollTo(0, (document.body.scrollHeight - window.innerHeight) * value), ratio);
     await page.waitForTimeout(50);
-    stickyVisible.push(await page.locator("#sticky").isVisible());
+    stickyVisible.push(await page.locator("#sticky").evaluate((el) => el.classList.contains("show")));
   }
   for (const selector of ["#hero", "#pain", "#steps-flow", "#shoulder-example", "#how-to-get", "#faq", "#final-cta"]) {
     await page.locator(selector).scrollIntoViewIfNeeded();
@@ -37,7 +37,7 @@ for (const width of [390, 430]) {
     };
   });
   console.log(JSON.stringify({ width, errors, stickyVisible, ...audit }));
-  if (stickyVisible.some((visible) => !visible)) process.exitCode = 1;
+  if (stickyVisible[0] || stickyVisible.slice(1).some((visible) => !visible)) process.exitCode = 1;
   if (audit.memberLines.some((lines) => lines !== 2)) process.exitCode = 1;
   await page.close();
 }

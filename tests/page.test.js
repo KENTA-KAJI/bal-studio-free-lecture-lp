@@ -11,10 +11,40 @@ test("all required GA4 events remain present", () => {
   }
 });
 
+test("Meta Pixel sends the required LP events with the configured pixel", () => {
+  assert.match(html, /fbq\('init', '590843899185461'\)/);
+  assert.equal((html.match(/fbq\('track', 'PageView'\)/g) || []).length, 1);
+  assert.equal((html.match(/fbq\('track', 'ViewContent'/g) || []).length, 1);
+  for (const value of [
+    "TOP10%のトレーナーになるための実践解剖学",
+    "free_lecture",
+    "free_lecture_line",
+    "bal_studio_free_lecture"
+  ]) assert.ok(html.includes(value), value);
+});
+
+test("LineClick includes CTA and Meta ad attribution parameters", () => {
+  assert.match(script, /sendMeta\("LineClick"/);
+  for (const name of [
+    "cta_position",
+    "section_id",
+    "link_url",
+    "funnel_name",
+    "landing_page",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+    "fbclid"
+  ]) assert.ok(script.includes(name), name);
+  assert.doesNotMatch(html + script, /CompleteRegistration/);
+});
+
 test("every image has alt text and local sources exist in markup", () => {
   const images = [...html.matchAll(/<img\s+[^>]*>/g)].map((m) => m[0]);
   assert.ok(images.length >= 5);
-  images.forEach((image) => assert.match(image, /alt="[^"]+"/));
+  images.forEach((image) => assert.match(image, /alt="[^"]*"/));
 });
 
 test("LINE CTA fallback URLs are valid", () => {

@@ -5,19 +5,40 @@
   resetScroll();
 
   const LINE_URL = "https://lin.ee/VYgsvSm";
+  const FUNNEL_NAME = "free_lecture_line";
+  const LANDING_PAGE = "bal_studio_free_lecture";
+  const ATTRIBUTION_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid"];
+  const searchParams = new window.URLSearchParams(window.location.search);
+  const attribution = Object.fromEntries(ATTRIBUTION_KEYS.map((key) => [key, searchParams.get(key) || ""]));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const send = (name, params = {}) => {
     const analytics = Reflect.get(window, "gtag");
     if (typeof analytics === "function") analytics("event", name, params);
   };
+  const sendMeta = (name, params = {}) => {
+    const pixel = Reflect.get(window, "fbq");
+    if (typeof pixel === "function") pixel("trackCustom", name, params);
+  };
 
   document.querySelectorAll('[data-cta="line"]').forEach((link) => {
     link.setAttribute("href", LINE_URL);
     link.setAttribute("rel", "noopener");
-    link.addEventListener("click", () => send(link.getAttribute("data-event") || "line_click_unknown", {
-      link_url: LINE_URL,
-      section_id: link.closest("section")?.id || "sticky"
-    }), { once: true });
+    link.addEventListener("click", () => {
+      const ga4EventName = link.getAttribute("data-event") || "line_click_unknown";
+      const sectionId = link.closest("section")?.id || "sticky";
+      send(ga4EventName, {
+        link_url: LINE_URL,
+        section_id: sectionId
+      });
+      sendMeta("LineClick", {
+        cta_position: ga4EventName.replace(/^line_click_/, ""),
+        section_id: sectionId,
+        link_url: LINE_URL,
+        funnel_name: FUNNEL_NAME,
+        landing_page: LANDING_PAGE,
+        ...attribution
+      });
+    }, { once: true });
   });
 
   const viewed = new Set();

@@ -11,13 +11,25 @@
     if (typeof analytics === "function") analytics("event", name, params);
   };
 
+  const sendMeta = (params = {}) => {
+    const fbq = Reflect.get(window, "fbq");
+    if (typeof fbq === "function") fbq("trackCustom", "LineClick", params);
+  };
+
   document.querySelectorAll('[data-cta="line"]').forEach((link) => {
     link.setAttribute("href", LINE_URL);
     link.setAttribute("rel", "noopener");
-    link.addEventListener("click", () => send(link.getAttribute("data-event") || "line_click_unknown", {
-      link_url: LINE_URL,
-      section_id: link.closest("section")?.id || "sticky"
-    }), { once: true });
+    link.addEventListener("click", () => {
+      const eventName = link.getAttribute("data-event") || "line_click_unknown";
+      const ctaPosition = link.getAttribute("data-cta-position");
+      send(eventName, {
+        link_url: LINE_URL,
+        section_id: link.closest("section")?.id || "sticky"
+      });
+      const metaParams = {};
+      if (ctaPosition) metaParams.cta_position = ctaPosition;
+      sendMeta(metaParams);
+    }, { once: true });
   });
 
   const viewed = new Set();

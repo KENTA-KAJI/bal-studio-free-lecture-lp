@@ -26,12 +26,13 @@
     link.addEventListener("click", () => {
       const ga4EventName = link.getAttribute("data-event") || "line_click_unknown";
       const sectionId = link.closest("section")?.id || "sticky";
+      const ctaPosition = link.getAttribute("data-cta-position") || ga4EventName.replace(/^line_click_/, "");
       send(ga4EventName, {
         link_url: LINE_URL,
         section_id: sectionId
       });
       sendMeta("LineClick", {
-        cta_position: ga4EventName.replace(/^line_click_/, ""),
+        cta_position: ctaPosition,
         section_id: sectionId,
         link_url: LINE_URL,
         funnel_name: FUNNEL_NAME,

@@ -34,32 +34,34 @@ h2::after{content:"";display:block;width:64px;height:1px;margin:20px auto 0;back
 @media(max-width:820px){.fv-bonus{margin-top:16px;padding:12px 14px}.fv-bonus__text{font-size:12px}.lecture-bonus-note{font-size:12px}.bonus-section{padding:64px 0}.bonus-header{margin-bottom:36px}.bonus-grid{grid-template-columns:1fr;gap:14px}.bonus-card{padding:20px 18px}.bonus-intro{margin-bottom:36px}.offer-summary-section{padding:64px 0}.offer-cards{grid-template-columns:1fr;gap:12px}.offer-divider{font-size:24px;padding:8px 0}.offer-card{padding:20px 18px}.offer-total{font-size:15px}.trust-grid{grid-template-columns:repeat(2,1fr);max-width:100%}.trust-grid li{padding:12px 6px;font-size:10px}.final-offer{grid-template-columns:1fr;gap:12px;max-width:100%}.final-offer__plus{font-size:22px;padding:6px 0}.final-offer__name{font-size:14px}.final-offer__total{font-size:12px}.bonus-title-card{padding:20px 18px}.bonus-title-main{font-size:clamp(24px,7vw,34px)}}
 /* ---------- New FV layout (階層再設計) ---------- */
 .hero{background:radial-gradient(circle at 50% 22%,#2b2118 0,transparent 52%),var(--black)}
-.fv-inner{max-width:640px;margin:0 auto;text-align:center}
-.fv-inner h1{text-align:center}
-.fv-lead{font-size:17px;color:#d4cfc5;line-height:1.75;margin:0 0 28px}
+.fv-inner{max-width:680px;margin:0 auto;text-align:center}
+.fv-inner h1{font-size:clamp(32px,3.8vw,48px);line-height:1.4;margin-bottom:22px;letter-spacing:.02em;text-align:center}
+.fv-inner h1 em{color:var(--gold2);font-style:normal}
+.fv-lead{font-size:16px;color:#d4cfc5;line-height:1.75;margin:0 0 28px}
 /* ② メイン講義カード */
-.fv-lecture-card{background:rgba(255,255,255,.07);border:1px solid rgba(180,147,85,.52);border-radius:5px;margin-bottom:12px;overflow:hidden;text-align:left}
+.fv-lecture-card{background:rgba(255,255,255,.07);border:1px solid rgba(180,147,85,.52);border-radius:5px;margin:0 auto 12px;max-width:640px;overflow:hidden;text-align:left}
 .fv-lecture-card__head{padding:20px 22px 0}
 .fv-lecture-card__num{display:block;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--gold);margin-bottom:8px}
-.fv-lecture-card__title{font-family:var(--serif);font-size:clamp(14px,2vw,18px);font-weight:600;color:#f0ebe0;line-height:1.5;margin:0 0 6px}
+.fv-lecture-card__title{font-family:var(--serif);font-size:clamp(15px,2.2vw,18px);font-weight:600;color:#f0ebe0;line-height:1.55;margin:0 0 6px}
+.fv-lecture-card__title span,.offer-card__title span{display:inline-block}
 .fv-lecture-card__sub{font-size:13px;color:#c9c4b8;line-height:1.6;margin:0 0 16px}
 .fv-lecture-card__img{width:100%;height:auto;display:block;border-top:1px solid rgba(180,147,85,.22)}
 /* ③ ＋ */
 .fv-plus{font-family:var(--serif);font-size:24px;color:var(--gold);line-height:1;margin:0 0 10px;text-align:center}
 /* ③ BONUSカード */
-.fv-bonus-card{background:rgba(180,147,85,.06);border:1px solid rgba(180,147,85,.38);border-radius:4px;padding:14px 20px;margin-bottom:20px;text-align:center}
+.fv-bonus-card{background:rgba(180,147,85,.06);border:1px solid rgba(180,147,85,.38);border-radius:4px;padding:14px 20px;max-width:640px;margin:0 auto 20px;text-align:center}
 .fv-bonus-card__label{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--gold);border:1px solid rgba(180,147,85,.5);padding:2px 10px;border-radius:2px;margin-bottom:7px}
 .fv-bonus-card__title{font-size:14px;font-weight:700;color:#f0ebe0;margin:0 0 3px;line-height:1.5}
 .fv-bonus-card__sub{font-size:12px;color:#b5aba0;margin:0}
 /* ④ オファーサマリー */
-.fv-offer{border-top:1px solid rgba(180,147,85,.2);border-bottom:1px solid rgba(180,147,85,.2);padding:16px 0;margin-bottom:18px}
+.fv-offer{border-top:1px solid rgba(180,147,85,.2);border-bottom:1px solid rgba(180,147,85,.2);padding:16px 0;max-width:640px;margin:0 auto 18px}
 .fv-offer__count{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--gold);margin-bottom:2px}
 .fv-offer__total{font-family:var(--serif);font-size:clamp(20px,3.2vw,28px);font-weight:700;color:#f0ebe0;line-height:1.25;margin:0 0 2px}
 .fv-offer__free{font-size:13px;font-weight:700;color:var(--gold2);margin:0 0 11px}
 .fv-chips{list-style:none;padding:0;margin:0;display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
 .fv-chips li{font-size:11px;font-weight:700;color:#b8944a}
 /* ⑤ CTAブロック */
-.fv-cta{text-align:center}
+.fv-cta{max-width:640px;margin:0 auto;text-align:center}
 .fv-legal{font-size:11px;color:var(--muted);margin:6px 0 12px}
 /* hero animation for new fv elements */
 .motion-ready .hero .fv-lead,.motion-ready .hero .fv-lecture-card,.motion-ready .hero .fv-plus,.motion-ready .hero .fv-bonus-card,.motion-ready .hero .fv-offer,.motion-ready .hero .fv-cta{opacity:0;transform:translate3d(0,14px,0)}
@@ -73,5 +75,5 @@ h2::after{content:"";display:block;width:64px;height:1px;margin:20px auto 0;back
 /* BONUS section h2 改行修正 */
 .bonus-section h2{font-size:clamp(20px,3vw,38px);letter-spacing:.01em;word-break:keep-all;overflow-wrap:break-word}
 /* new FV mobile */
-@media(max-width:820px){.fv-inner{text-align:center}.fv-lead{font-size:15px;margin-bottom:20px}.fv-lecture-card__head{padding:16px 18px 0}.fv-lecture-card__sub{font-size:12px;margin-bottom:12px}.fv-lecture-card__title{font-size:clamp(13px,4vw,16px)}.fv-plus{font-size:20px;margin:0 0 8px}.fv-bonus-card{padding:12px 14px}.fv-bonus-card__title{font-size:13px}.fv-offer{padding:13px 0;margin-bottom:14px}.fv-offer__total{font-size:clamp(18px,5vw,24px)}.fv-chips{gap:8px}.fv-chips li{font-size:10.5px}}
+@media(max-width:820px){.fv-inner{text-align:center}.fv-inner h1{font-size:clamp(22px,6vw,26px);line-height:1.45;margin-bottom:16px;letter-spacing:.01em}.fv-lead{font-size:14.5px;line-height:1.75;margin-bottom:20px}.fv-lecture-card__head{padding:16px 16px 0}.fv-lecture-card__sub{font-size:12px;margin-bottom:12px}.fv-lecture-card__title{font-size:15px;line-height:1.5;letter-spacing:0}.fv-lecture-card__title span{display:inline-block}.fv-plus{font-size:20px;margin:0 0 8px}.fv-bonus-card{padding:12px 14px}.fv-bonus-card__title{font-size:13px}.fv-offer{padding:13px 0;margin-bottom:14px}.fv-offer__total{font-size:clamp(18px,5vw,24px)}.fv-chips{gap:8px}.fv-chips li{font-size:10.5px}}
 

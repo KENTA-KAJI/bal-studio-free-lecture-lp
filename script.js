@@ -23,6 +23,7 @@
   document.querySelectorAll('[data-cta="line"]').forEach((link) => {
     link.setAttribute("href", LINE_URL);
     link.setAttribute("rel", "noopener");
+    link.setAttribute("target", "_blank");
     link.addEventListener("click", () => {
       const ga4EventName = link.getAttribute("data-event") || "line_click_unknown";
       const sectionId = link.closest("section")?.id || "sticky";
